@@ -1,4 +1,4 @@
-@php $c = config('site.contact_copy'); @endphp
+@php $c = $contactCopy; @endphp
 <form class="contact-form" id="contact-form">
     <div class="form-pair">
         <label>{{ $c['labels']['name'] }}<input name="name" autocomplete="name" required maxlength="150" data-label="{{ $c['labels']['name'] }}"></label>

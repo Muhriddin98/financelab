@@ -1,6 +1,6 @@
 {{-- Cropped image from /design-reference.png sprite. Usage: @include('partials.reference-image', ['name' => 'hero', 'alt' => '...']) --}}
 @php
-$coords = config('site.ref_images')[$name] ?? null;
+$coords = ($refImages ?? [])[$name] ?? null;
 $cls = trim('reference-image ' . ($class ?? ''));
 $svgAttrs = !empty($alt) ? ' role="img" aria-label="'.e($alt).'"' : ' aria-hidden="true"';
 @endphp

@@ -25,15 +25,15 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
     <section class="detail-section">
         <div class="container">
             <div class="service-details">
-                @foreach(config('site.services') as $i => $s)
-                <article class="service-detail" id="service-{{ $i }}"><p class="eyebrow">0{{ $i + 1 }}</p><h3>{{ $s }}</h3><p>{{ config('site.service_descriptions')[$i] }}</p></article>
+                @foreach($services as $i => $s)
+                <article class="service-detail" id="service-{{ $i }}"><p class="eyebrow">0{{ $i + 1 }}</p><h3>{{ $s }}</h3><p>{{ $serviceDescriptions[$i] }}</p></article>
                 @endforeach
             </div>
             <div id="industry-experience" class="section">
                 <h2>Industry understanding.<br>Financial precision.</h2>
                 <div class="industry-details">
-                    @foreach(config('site.industries') as $i => $ind)
-                    <article id="{{ $ind['anchor'] }}"><h3>{{ $ind['name'] }}</h3><p>{{ config('site.industry_descriptions')[$i] }}</p></article>
+                    @foreach($industries as $i => $ind)
+                    <article id="{{ $ind['anchor'] }}"><h3>{{ $ind['name'] }}</h3><p>{{ $industryDescriptions[$i] }}</p></article>
                     @endforeach
                 </div>
             </div>
@@ -47,7 +47,7 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
         @include('partials.founder')
         <section class="detail-section">
             <div class="container">
-                <div class="detail-copy"><h2>{{ config('site.site.tagline') }}</h2><p>FinanceLab connects the work of solving financial problems with the responsibility of sharing knowledge. Advisory, Academy and Media bring the same analytical approach to different audiences.</p></div>
+                <div class="detail-copy"><h2>{{ $siteTagline }}</h2><p>FinanceLab connects the work of solving financial problems with the responsibility of sharing knowledge. Advisory, Academy and Media bring the same analytical approach to different audiences.</p></div>
             </div>
         </section>
     @endif
@@ -56,9 +56,9 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
     <section class="detail-section">
         <div class="container">
             <div class="project-grid">
-                @foreach(config('site.projects') as $p)
+                @foreach($projects as $p)
                 <a href="/projects/{{ $p['slug'] }}/" class="project-card">
-                    <div class="project-image">@include('partials.reference-image', ['name' => config('site.project_images')[$p['slug']]])</div>
+                    <div class="project-image">@include('partials.reference-image', ['name' => $projectImages[$p['slug']]])</div>
                     <div class="project-copy"><p class="card-category">{{ $p['industry'] }}</p><h3>{{ $p['title'] }}</h3><p>{{ $p['description'] }}</p><span class="circle-arrow">@include('partials.lucide', ['name' => 'arrow-up-right', 'size' => 16])</span></div>
                 </a>
                 @endforeach
@@ -96,7 +96,7 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
             <h2>Follow the conversation.</h2>
             <p>Connect with FinanceLab for financial perspectives, visual explanations and professional discussion.</p>
             <div class="service-details">
-                @foreach(config('site.contact.socials') as $s)
+                @foreach($siteContact['socials'] as $s)
                 <article class="service-detail"><h3>{{ $s['label'] }}</h3><p>{{ $s['label'] === 'Telegram' ? 'Follow the FinanceLab channel for updates and accessible financial explanations.' : 'Connect with Laziz Sherovatov for professional perspectives and discussion.' }}</p><a class="text-link" href="{{ $s['href'] }}" target="_blank" rel="noopener noreferrer">Open {{ $s['label'] }} ↗</a></article>
                 @endforeach
                 <article class="service-detail"><h3>Editorial enquiries</h3><p>Suggest a topic, discuss an interview or enquire about a media collaboration.</p><a href="/contact/" class="button">Discuss a topic @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a></article>
@@ -109,10 +109,10 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
     <section class="detail-section">
         <div class="container contact-layout">
             <aside>
-                <h2>{{ config('site.contact_copy.heading') }}</h2>
-                @foreach(config('site.contact_copy.paragraphs') as $t)<p>{{ $t }}</p>@endforeach
-                <a class="contact-email" href="mailto:{{ config('site.contact.email') }}">{{ config('site.contact.email') }}</a>
-                <div class="social-links">@foreach(config('site.contact.socials') as $s)<a href="{{ $s['href'] }}" target="_blank" rel="noopener noreferrer">{{ $s['label'] }}</a>@endforeach</div>
+                <h2>{{ $contactCopy['heading'] }}</h2>
+                @foreach($contactCopy['paragraphs'] as $t)<p>{{ $t }}</p>@endforeach
+                <a class="contact-email" href="mailto:{{ $siteContact['email'] }}">{{ $siteContact['email'] }}</a>
+                <div class="social-links">@foreach($siteContact['socials'] as $s)<a href="{{ $s['href'] }}" target="_blank" rel="noopener noreferrer">{{ $s['label'] }}</a>@endforeach</div>
             </aside>
             @include('partials.contact-form')
         </div>

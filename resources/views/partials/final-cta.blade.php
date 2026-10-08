@@ -1,4 +1,4 @@
-@php $cta = config('site.copy.cta'); $actions = config('site.copy.actions'); @endphp
+@php $cta = $copy['cta']; @endphp
 <section class="final-cta">
     @include('partials.reference-image', ['name' => 'mountains'])
     <div class="container">

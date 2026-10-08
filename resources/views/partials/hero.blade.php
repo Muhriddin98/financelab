@@ -1,14 +1,11 @@
-@php
-$site = config('site.site'); $pillars = config('site.pillars'); $actions = config('site.copy.actions');
-@endphp
 <section class="hero">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="container">
         <div class="hero-main">
             <div class="hero-copy">
-                <p class="eyebrow">{{ $site['hero']['eyebrow'] }}</p>
-                <h1>@foreach($site['hero']['lines'] as $i => $line)<span{!! $i === 2 ? ' class="blue-text"' : '' !!}>{{ $line }}</span>@endforeach</h1>
-                <p class="hero-description">{{ $site['hero']['description'] }}</p>
+                <p class="eyebrow">{{ $hero['eyebrow'] }}</p>
+                <h1>@foreach($hero['lines'] as $i => $line)<span{!! $i === 2 ? ' class="blue-text"' : '' !!}>{{ $line }}</span>@endforeach</h1>
+                <p class="hero-description">{{ $hero['description'] }}</p>
                 <div class="button-row">
                     <a href="#directions" class="button">{{ $actions['explore'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
                     <a href="/contact/" class="button secondary">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
@@ -23,10 +20,10 @@ $site = config('site.site'); $pillars = config('site.pillars'); $actions = confi
         </div>
         <div class="hero-bottom">
             <div class="metrics">
-                @foreach($site['metrics'] as $m)<div><strong>{{ $m['value'] }}</strong><span>{{ $m['label'] }}</span></div>@endforeach
+                @foreach($metrics as $m)<div><strong>{{ $m['value'] }}</strong><span>{{ $m['label'] }}</span></div>@endforeach
             </div>
             <a class="scroll-cue" href="#directions" aria-label="Scroll to FinanceLab directions">@include('partials.lucide', ['name' => 'mouse'])<span>Scroll</span></a>
-            <p>{{ $site['hero']['note'] }}</p>
+            <p>{{ $hero['note'] }}</p>
         </div>
     </div>
 </section>

@@ -1,4 +1,3 @@
-@php $founder = config('site.site.founder'); $metrics = config('site.site.metrics'); $actions = config('site.copy.actions'); @endphp
 <section class="founder-section">
     <div class="container">
         <div class="founder-grid">

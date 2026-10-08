@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $metaTitle ?? 'FinanceLab | Financial Intelligence. Applied.' }}</title>
-    <meta name="description" content="{{ $metaDescription ?? config('site.site.description') }}">
+    <meta name="description" content="{{ $metaDescription ?? $siteDescription }}">
     <link rel="icon" href="/favicon.svg">
     <meta property="og:title" content="{{ $metaTitle ?? 'FinanceLab | Financial Intelligence. Applied.' }}">
-    <meta property="og:description" content="{{ $metaDescription ?? config('site.site.description') }}">
+    <meta property="og:description" content="{{ $metaDescription ?? $siteDescription }}">
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <meta property="og:locale" content="en_US">
     <meta name="robots" content="noindex, nofollow">

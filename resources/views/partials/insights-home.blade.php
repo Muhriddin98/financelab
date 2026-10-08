@@ -1,6 +1,5 @@
 @php
-$c = config('site.copy.insights'); $actions = config('site.copy.actions');
-$insights = $insights ?? config('site.insights');
+$c = $copy['insights'];
 $link = $link ?? ['label' => $actions['insights'], 'href' => '/insights/'];
 @endphp
 <section id="insights" class="insights-section">

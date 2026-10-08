@@ -1,4 +1,4 @@
-@php $c = config('site.copy.pillars'); $pillars = config('site.pillars'); @endphp
+@php $c = $copy['pillars']; @endphp
 <section id="directions" class="pillars-section section">
     <div class="container">
         @include('partials.section-header', ['label' => $c['label'], 'title' => $c['title'], 'description' => $c['description'] ?? null])

@@ -1,9 +1,8 @@
 @php
-$images = config('site.insight_images'); $slugs = config('site.media_slugs');
-$href = '/' . (in_array($item['slug'], $slugs) ? 'media' : 'insights') . '/' . $item['slug'] . '/';
+$href = '/' . (in_array($item['slug'], $mediaSlugs) ? 'media' : 'insights') . '/' . $item['slug'] . '/';
 @endphp
 <a href="{{ $href }}" class="insight-card">
-    <div class="insight-image">@include('partials.reference-image', ['name' => $images[$item['slug']]])</div>
+    <div class="insight-image">@include('partials.reference-image', ['name' => $insightImages[$item['slug']]])</div>
     <div class="insight-copy">
         <p class="card-category">{{ $item['category'] }}</p>
         <h3>{{ $item['title'] }}</h3>
