@@ -33,9 +33,74 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-            <p class="mb-0">Kontent hozircha <code>config/site.php</code> dan o'qiladi. Keyingi qadam: maqola/loyiha CRUD.</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">So‘nggi maqolalar</h3>
+                    <div class="card-tools">
+                        <a href="{{ route('admin.articles.create') }}" class="btn btn-primary btn-xs"><i class="fas fa-plus"></i> Qo‘shish</a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped mb-0">
+                        <tbody>
+                            @forelse($recentArticles as $a)
+                            <tr>
+                                <td>
+                                    {{ $a->title }}
+                                    <br><small class="text-muted">{{ $a->isMedia() ? 'Media' : 'Insight' }} · {{ $a->date ?? '—' }}</small>
+                                </td>
+                                <td class="text-right" style="white-space:nowrap">
+                                    @if($a->is_published)<span class="badge badge-success">Nashrda</span>
+                                    @else<span class="badge badge-secondary">Qoralama</span>@endif
+                                    <a href="{{ route('admin.articles.edit', $a) }}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr><td class="text-center">Hozircha bo‘sh.</td></tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ route('admin.articles.index') }}">Barchasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">So‘nggi loyihalar</h3>
+                    <div class="card-tools">
+                        <a href="{{ route('admin.projects.create') }}" class="btn btn-primary btn-xs"><i class="fas fa-plus"></i> Qo‘shish</a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped mb-0">
+                        <tbody>
+                            @forelse($recentProjects as $p)
+                            <tr>
+                                <td>
+                                    {{ $p->title }}
+                                    <br><small class="text-muted">{{ $p->industry }}</small>
+                                </td>
+                                <td class="text-right" style="white-space:nowrap">
+                                    @if($p->is_published)<span class="badge badge-success">Nashrda</span>
+                                    @else<span class="badge badge-secondary">Qoralama</span>@endif
+                                    <a href="{{ route('admin.projects.edit', $p) }}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr><td class="text-center">Hozircha bo‘sh.</td></tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ route('admin.projects.index') }}">Barchasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 @stop

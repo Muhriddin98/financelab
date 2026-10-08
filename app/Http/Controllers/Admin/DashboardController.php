@@ -15,6 +15,9 @@ class DashboardController extends Controller
             'users' => \App\Models\User::count(),
         ];
 
-        return view('admin.dashboard', compact('stats'));
+        $recentArticles = \App\Models\Article::latest()->take(5)->get();
+        $recentProjects = \App\Models\Project::latest()->take(5)->get();
+
+        return view('admin.dashboard', compact('stats', 'recentArticles', 'recentProjects'));
     }
 }

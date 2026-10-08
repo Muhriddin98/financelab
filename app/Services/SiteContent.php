@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Article;
+use App\Models\Project;
+
 /**
  * Site content repository.
  *
@@ -42,9 +45,9 @@ class SiteContent
             'industries' => $this->data['industries'],
             'industryImages' => $this->data['industry_images'],
             'industryDescriptions' => $this->data['industry_descriptions'],
-            'projects' => $this->data['projects'],
+            'projects' => $this->projects(),
             'projectImages' => $this->data['project_images'],
-            'insights' => $this->data['insights'],
+            'insights' => $this->articles(),
             'insightImages' => $this->data['insight_images'],
             'mediaSlugs' => $this->data['media_slugs'],
             'copy' => $this->data['copy'],
@@ -69,35 +72,52 @@ class SiteContent
             return null;
         }
 
-        $insights = collect($this->data['insights']);
-        $slugs = $this->data['media_slugs'];
-
         return [
             'section' => $section,
             'page' => $pages[$section],
             'metaTitle' => $pages[$section]['label'].' | FinanceLab',
             'metaDescription' => $pages[$section]['intro'],
-            'analytical' => $insights->reject(fn ($i) => in_array($i['slug'], $slugs))->values()->all(),
-            'mediaArticles' => $insights->filter(fn ($i) => in_array($i['slug'], $slugs))->values()->all(),
+            'analytical' => $this->analytical(),
+            'mediaArticles' => $this->mediaArticles(),
         ];
     }
 
-    public function project(string $slug): ?array
+    public function projects()
     {
-        return collect($this->data['projects'])->firstWhere('slug', $slug);
+        return Project::where('is_published', true)->orderBy('sort_order')->get();
     }
 
-    public function insight(string $slug): ?array
+    public function project(string $slug): ?Project
     {
-        $article = collect($this->data['insights'])->firstWhere('slug', $slug);
-
-        return $article && ! in_array($slug, $this->data['media_slugs']) ? $article : null;
+        return Project::where('slug', $slug)->where('is_published', true)->first();
     }
 
-    public function mediaArticle(string $slug): ?array
+    public function articles()
     {
-        $article = collect($this->data['insights'])->firstWhere('slug', $slug);
+        return Article::where('is_published', true)->orderBy('sort_order')->get();
+    }
 
-        return $article && in_array($slug, $this->data['media_slugs']) ? $article : null;
+    public function analytical()
+    {
+        return $this->articles()->where('type', 'insight')->values();
+    }
+
+    public function mediaArticles()
+    {
+        return $this->articles()->where('type', 'media')->values();
+    }
+
+    public function insight(string $slug): ?Article
+    {
+        $article = Article::where('slug', $slug)->where('is_published', true)->first();
+
+        return $article && ! $article->isMedia() ? $article : null;
+    }
+
+    public function mediaArticle(string $slug): ?Article
+    {
+        $article = Article::where('slug', $slug)->where('is_published', true)->first();
+
+        return $article && $article->isMedia() ? $article : null;
     }
 }

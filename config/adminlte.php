@@ -301,89 +301,44 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
             'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
             'text' => 'Dashboard',
             'url' => 'admin',
             'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'KONTENT'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
+            'text' => 'Maqolalar',
+            'url' => 'admin/articles',
+            'icon' => 'fas fa-fw fa-newspaper',
+        ],
+        [
+            'text' => 'Loyihalar',
+            'url' => 'admin/projects',
+            'icon' => 'fas fa-fw fa-briefcase',
+        ],
+        ['header' => 'HISOB'],
+        [
+            'text' => 'Profil',
+            'url' => 'admin/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
+            'text' => 'Parolni almashtirish',
+            'url' => 'admin/password',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'SAYT'],
         [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+            'text' => 'Saytni ko‘rish',
+            'url' => '/',
+            'icon' => 'fas fa-fw fa-globe',
+            'target' => '_blank',
         ],
     ],
 
