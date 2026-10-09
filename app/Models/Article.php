@@ -43,6 +43,7 @@ class Article extends Model
 
     protected function href(): Attribute
     {
-        return Attribute::get(fn () => '/'.($this->isMedia() ? 'media' : 'insights').'/'.$this->slug.'/');
+        // RU/UZ da til prefiksi (DB dagi slug o'zgarmaydi).
+        return Attribute::get(fn () => (app()->getLocale() === 'en' ? '' : '/'.app()->getLocale()).'/'.($this->isMedia() ? 'media' : 'insights').'/'.$this->slug.'/');
     }
 }

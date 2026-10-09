@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-scroll-behavior="smooth">
+<html lang="{{ $locale ?? 'en' }}" data-scroll-behavior="smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
     <meta property="og:title" content="{{ $metaTitle ?? 'FinanceLab | Financial Intelligence. Applied.' }}">
     <meta property="og:description" content="{{ $metaDescription ?? $siteDescription }}">
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="{{ ($locale ?? 'en') === 'ru' ? 'ru_RU' : (($locale ?? 'en') === 'uz' ? 'uz_UZ' : 'en_US') }}">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="/css/site.css">
 </head>

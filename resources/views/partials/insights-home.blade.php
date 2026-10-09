@@ -1,6 +1,6 @@
 @php
 $c = $copy['insights'];
-$link = $link ?? ['label' => $actions['insights'], 'href' => '/insights/'];
+$link = $link ?? ['label' => $actions['insights'], 'href' => ($localePrefix ?? '').'/insights/'];
 @endphp
 <section id="insights" class="insights-section">
     <div class="container">

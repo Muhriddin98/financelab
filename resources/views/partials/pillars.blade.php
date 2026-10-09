@@ -4,7 +4,7 @@
         @include('partials.section-header', ['label' => $c['label'], 'title' => $c['title'], 'description' => $c['description'] ?? null])
         <div class="pillar-grid">
             @foreach($pillars as $p)
-            <a href="/{{ $p['slug'] }}/" class="pillar-card {{ $p['color'] }}">
+            <a href="{{ ($localePrefix ?? '').'/'.$p['slug'].'/' }}" class="pillar-card {{ $p['color'] }}">
                 <img src="{{ $p['image'] }}" alt="" class="reference-image" style="object-fit:cover">
                 <div class="pillar-content">
                     <div class="pillar-name"><span>{{ $p['number'] }}</span><h3>Finance<span>Lab</span><br>{{ $p['name'] }}</h3></div>

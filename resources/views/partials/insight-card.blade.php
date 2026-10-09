@@ -1,5 +1,5 @@
 @php
-$href = $item['href'] ?? '/'.(in_array($item['slug'], $mediaSlugs ?? []) ? 'media' : 'insights').'/'.$item['slug'].'/';
+$href = $item['href'] ?? ($localePrefix ?? '').'/'.(in_array($item['slug'], $mediaSlugs ?? []) ? 'media' : 'insights').'/'.$item['slug'].'/';
 $cardImage = ($insightImages ?? [])[$item['slug']] ?? null;
 @endphp
 <a href="{{ $href }}" class="insight-card">

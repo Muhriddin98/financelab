@@ -8,11 +8,11 @@
                 <p class="hero-description">{{ $hero['description'] }}</p>
                 <div class="button-row">
                     <a href="#directions" class="button">{{ $actions['explore'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
-                    <a href="/contact/" class="button secondary">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
+                    <a href="{{ ($localePrefix ?? '').'/contact/' }}" class="button secondary">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="/images/hero.webp" alt="FinanceLab financial intelligence">
+                <img src="/images/hero.webp" alt="{{ __('ui.hero_alt') }}">
                 <div class="hero-pillar-labels">
                     @foreach($pillars as $p)<div class="{{ $p['color'] }}"><strong>{{ $p['name'] }}</strong><span>{{ $p['verb'] }}</span></div>@endforeach
                 </div>
@@ -22,7 +22,7 @@
             <div class="metrics">
                 @foreach($metrics as $m)<div><strong>{{ $m['value'] }}</strong><span>{{ $m['label'] }}</span></div>@endforeach
             </div>
-            <a class="scroll-cue" href="#directions" aria-label="Scroll to FinanceLab directions">@include('partials.lucide', ['name' => 'mouse'])<span>Scroll</span></a>
+            <a class="scroll-cue" href="#directions" aria-label="{{ __('ui.scroll_aria') }}">@include('partials.lucide', ['name' => 'mouse'])<span>{{ __('ui.scroll') }}</span></a>
             <p>{{ $hero['note'] }}</p>
         </div>
     </div>

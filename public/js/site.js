@@ -40,19 +40,19 @@
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             var values = new FormData(form);
-            var lines = ['FinanceLab — Project brief', ''];
+            var lines = [(form.getAttribute('data-brief-title') || 'FinanceLab — Project brief'), ''];
             form.querySelectorAll('[data-label]').forEach(function (el) {
                 lines.push(el.getAttribute('data-label') + ': ' + (values.get(el.name) || '—'));
                 lines.push('');
             });
-            lines.push('This brief was prepared locally and has not been sent.');
+            lines.push(form.getAttribute('data-brief-pending') || 'This brief was prepared locally and has not been sent.');
             var body = lines.join('\n');
             var email = document.querySelector('.contact-email');
             var to = email ? email.textContent.trim() : '';
             var isDownload = event.submitter && event.submitter.getAttribute('value') === 'download';
             if (!isDownload) {
-                window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('FinanceLab enquiry — ' + (values.get('interest') || '')) + '&body=' + encodeURIComponent(body);
-                status.textContent = 'Please review and send the draft in your email app. If it does not open, use the email address on this page.';
+                window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent((form.getAttribute('data-subject') || 'FinanceLab enquiry — ') + (values.get('interest') || '')) + '&body=' + encodeURIComponent(body);
+                status.textContent = form.getAttribute('data-status') || 'Please review and send the draft in your email app. If it does not open, use the email address on this page.';
                 return;
             }
             var url = URL.createObjectURL(new Blob([body], { type: 'text/plain;charset=utf-8' }));
@@ -61,7 +61,7 @@
             a.download = 'FinanceLab-project-brief.txt';
             a.click();
             setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-            status.textContent = 'Your brief is ready. Check your downloads; it has not been sent.';
+            status.textContent = form.getAttribute('data-success') || 'Your brief is ready. Check your downloads; it has not been sent.';
         });
     }
 })();

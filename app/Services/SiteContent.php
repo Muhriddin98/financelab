@@ -21,42 +21,70 @@ class SiteContent
         $this->data = config('site');
     }
 
+    /**
+     * Joriy til datasi: EN da config o'zi, RU da lang/ru/site.php
+     * ustiga merge (faqat statik matnlar; slug/image/href/DB tegilmaydi).
+     */
+    protected function data(): array
+    {
+        if (app()->getLocale() === 'en') {
+            return $this->data;
+        }
+        $over = __('site');
+
+        return is_array($over) ? array_replace_recursive($this->data, $over) : $this->data;
+    }
+
     /** Har sahifada kerak bo'ladigan chrome: header/footer/layout (+404). */
     public function shared(): array
     {
+        $d = $this->data();
+        $locale = app()->getLocale();
+        $prefix = $locale === 'en' ? '' : '/'.$locale;
+        $nav = array_map(fn ($n) => ['label' => $n['label'], 'href' => $prefix.$n['href']], $d['site']['nav']);
+
         return [
-            'siteName' => $this->data['site']['name'],
-            'siteTagline' => $this->data['site']['tagline'],
-            'siteDescription' => $this->data['site']['description'],
-            'siteNav' => $this->data['site']['nav'],
-            'siteContact' => $this->data['contact'],
-            'siteCopyright' => $this->data['site']['footer']['copyright'],
+            'siteName' => $d['site']['name'],
+            'siteTagline' => $d['site']['tagline'],
+            'siteDescription' => $d['site']['description'],
+            'siteNav' => $nav,
+            'siteContact' => $d['contact'],
+            'siteCopyright' => $d['site']['footer']['copyright'],
         ];
     }
 
     /** Kontent sahifalar uchun umumiy to'plam. */
     public function common(): array
     {
+        $d = $this->data();
+
+        // industry_images EN nom bilan kalitlangan — RU da anchor orqali topiladi.
+        $industryImages = [];
+        foreach ($this->data['industries'] as $i => $orig) {
+            $anchor = $d['industries'][$i]['anchor'] ?? $orig['anchor'];
+            $industryImages[$anchor] = $d['industry_images'][$orig['name']] ?? null;
+        }
+
         return [
-            'pillars' => $this->data['pillars'],
-            'services' => $this->data['services'],
-            'serviceIcons' => $this->data['service_icons'],
-            'serviceDescriptions' => $this->data['service_descriptions'],
-            'industries' => $this->data['industries'],
-            'industryImages' => $this->data['industry_images'],
-            'industryDescriptions' => $this->data['industry_descriptions'],
+            'pillars' => $d['pillars'],
+            'services' => $d['services'],
+            'serviceIcons' => $d['service_icons'],
+            'serviceDescriptions' => $d['service_descriptions'],
+            'industries' => $d['industries'],
+            'industryImages' => $industryImages,
+            'industryDescriptions' => $d['industry_descriptions'],
             'projects' => $this->projects(),
-            'projectImages' => $this->data['project_images'],
+            'projectImages' => $d['project_images'],
             'insights' => $this->articles(),
-            'insightImages' => $this->data['insight_images'],
-            'mediaSlugs' => $this->data['media_slugs'],
-            'copy' => $this->data['copy'],
-            'actions' => $this->data['copy']['actions'],
-            'founder' => $this->data['site']['founder'],
-            'metrics' => $this->data['site']['metrics'],
-            'hero' => $this->data['site']['hero'],
-            'contactCopy' => $this->data['contact_copy'],
-            'refImages' => $this->data['ref_images'],
+            'insightImages' => $d['insight_images'],
+            'mediaSlugs' => $d['media_slugs'],
+            'copy' => $d['copy'],
+            'actions' => $d['copy']['actions'],
+            'founder' => $d['site']['founder'],
+            'metrics' => $d['site']['metrics'],
+            'hero' => $d['site']['hero'],
+            'contactCopy' => $d['contact_copy'],
+            'refImages' => $d['ref_images'],
         ];
     }
 
@@ -67,7 +95,7 @@ class SiteContent
 
     public function section(string $section): ?array
     {
-        $pages = $this->data['pages'];
+        $pages = $this->data()['pages'];
         if (! isset($pages[$section])) {
             return null;
         }

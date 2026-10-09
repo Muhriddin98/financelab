@@ -1,10 +1,10 @@
 @php $c = $copy['work']; @endphp
 <section id="work" class="work-section section">
     <div class="container">
-        @include('partials.section-header', ['label' => $c['label'], 'title' => $c['title'], 'link' => ['label' => $actions['projects'], 'href' => '/projects/']])
+        @include('partials.section-header', ['label' => $c['label'], 'title' => $c['title'], 'link' => ['label' => $actions['projects'], 'href' => ($localePrefix ?? '').'/projects/']])
         <div class="project-grid">
             @foreach($projects as $p)
-            <a href="/projects/{{ $p['slug'] }}/" class="project-card">
+            <a href="{{ ($localePrefix ?? '').'/projects/'.$p['slug'].'/' }}" class="project-card">
                 <div class="project-image">
                     @if(!empty($p['image_url']))
                     <img src="{{ $p['image_url'] }}" alt="" class="reference-image" style="object-fit:cover">

@@ -4,8 +4,8 @@
     <div class="container">
         <div><p class="eyebrow">{{ $cta['label'] }}</p><h2>{!! nl2br(e($cta['title'])) !!}</h2></div>
         <div class="button-row">
-            <a href="/contact/" class="button">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
-            <a href="/#directions" class="button secondary">{{ $actions['explore'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
+            <a href="{{ ($localePrefix ?? '').'/contact/' }}" class="button">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
+            <a href="{{ ($localePrefix ?? '').'/#directions' }}" class="button secondary">{{ $actions['explore'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
         </div>
     </div>
 </section>
