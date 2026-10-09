@@ -5,7 +5,7 @@
         <div class="pillar-grid">
             @foreach($pillars as $p)
             <a href="/{{ $p['slug'] }}/" class="pillar-card {{ $p['color'] }}">
-                @include('partials.reference-image', ['name' => $p['slug']])
+                <img src="{{ $p['image'] }}" alt="" class="reference-image" style="object-fit:cover">
                 <div class="pillar-content">
                     <div class="pillar-name"><span>{{ $p['number'] }}</span><h3>Finance<span>Lab</span><br>{{ $p['name'] }}</h3></div>
                     <p class="pillar-verb">{{ $p['verb'] }}</p>

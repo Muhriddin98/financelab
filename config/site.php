@@ -15,7 +15,7 @@ return [
         ],
         'metrics' => [
             ['value' => '50+', 'label' => 'Projects reviewed'],
-            ['value' => '10+', 'label' => 'Years of experience'],
+            ['value' => '8+', 'label' => 'Years of experience'],
             ['value' => 'Multiple', 'label' => 'Industries'],
             ['value' => 'Real-world', 'label' => 'Expertise & insights'],
         ],
@@ -34,9 +34,9 @@ return [
     ],
 
     'pillars' => [
-        ['slug' => 'advisory', 'number' => '01', 'name' => 'Advisory', 'verb' => 'We solve.', 'color' => 'blue', 'description' => 'Financial modelling, feasibility studies and analytical solutions for informed decisions and sustainable growth.'],
-        ['slug' => 'academy', 'number' => '02', 'name' => 'Academy', 'verb' => 'We teach.', 'color' => 'gold', 'description' => 'Practical finance education built on real project experience to develop the next generation of finance professionals.'],
-        ['slug' => 'media', 'number' => '03', 'name' => 'Media', 'verb' => 'We explain.', 'color' => 'green', 'description' => 'Financial intelligence through analysis, data and visual materials that make complex topics simple and practical.'],
+        ['slug' => 'advisory', 'number' => '01', 'name' => 'Advisory', 'verb' => 'We solve.', 'color' => 'blue', 'image' => '/images/advisory.webp', 'description' => 'Financial modelling, feasibility studies and analytical solutions for informed decisions and sustainable growth.'],
+        ['slug' => 'academy', 'number' => '02', 'name' => 'Academy', 'verb' => 'We teach.', 'color' => 'gold', 'image' => '/images/academy.webp', 'description' => 'Practical finance education built on real project experience to develop the next generation of finance professionals.'],
+        ['slug' => 'media', 'number' => '03', 'name' => 'Media', 'verb' => 'We explain.', 'color' => 'green', 'image' => '/images/media.webp', 'description' => 'Financial intelligence through analysis, data and visual materials that make complex topics simple and practical.'],
     ],
 
     'services' => [
@@ -135,7 +135,7 @@ return [
         [
             'slug' => 'strategic-insights', 'category' => 'Visual finance',
             'title' => 'From Financial Statements to Strategic Insights', 'date' => '18 Aug 2026',
-            'image' => '/images/architecture.webp',
+            'image' => '/images/strategic.webp',
             'intro' => 'Financial statements become more useful when their relationships are made clear.',
             'body' => [
                 'Begin with the connection between growth, margins and cash conversion. Revenue alone cannot explain whether a business is creating the capacity to fund its next stage.',
@@ -166,7 +166,7 @@ return [
         'advisory' => [
             'label' => 'FinanceLab Advisory', 'title' => 'Rigorous analysis. Better decisions.',
             'intro' => 'Financial modelling, feasibility studies and investment analysis across the full project lifecycle.',
-            'image' => '/images/architecture.webp',
+            'image' => '/images/advisory.webp',
             'body' => [
                 'An investment decision is only as strong as the analysis behind it. We connect commercial, technical and financial assumptions in a clear, decision-ready view.',
                 'From the initial business case to a bankable feasibility study, our work helps project sponsors evaluate alternatives, understand risk and communicate with investors and lenders.',
@@ -194,7 +194,7 @@ return [
         'about' => [
             'label' => 'About FinanceLab', 'title' => 'Expertise, shared with purpose.',
             'intro' => 'One brand connects financial advisory, professional education and analytical media.',
-            'image' => '/images/architecture.webp',
+            'image' => '/images/advisory.webp',
         ],
         'projects' => [
             'label' => 'Selected work', 'title' => 'Real projects. Tangible impact.',
@@ -266,9 +266,9 @@ return [
     ],
 
     'industry_images' => [
-        'Mining & Metallurgy' => 'mining', 'Automotive' => 'automotive',
-        'Manufacturing' => 'manufacturing', 'Energy' => 'energy',
-        'Infrastructure' => 'infrastructure',
+        'Mining & Metallurgy' => '/images/mining.webp', 'Automotive' => '/images/automotive-card.webp',
+        'Manufacturing' => '/images/manufacturing-card.webp', 'Energy' => '/images/energy.webp',
+        'Infrastructure' => '/images/infrastructure.webp',
     ],
 
     'project_images' => [

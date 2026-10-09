@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-main">
             <div>
-                <a href="/" class="logo" aria-label="FinanceLab home"><span class="logo-symbol"><img src="/financelab-brand.png" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
+                <a href="/" class="logo" aria-label="FinanceLab home"><span class="logo-symbol"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
                 <p>Financial Intelligence. Applied.</p>
             </div>
             <nav aria-label="Footer navigation">

@@ -29,7 +29,7 @@ class ArticleController extends Controller
         $data['is_published'] = $request->boolean('is_published');
 
         $data['body'] = $this->linesToArray($request->input('body'));
-        $data['image'] = $this->upload($request, 'image', 'uploads/articles', null);
+        $data['image'] = $this->upload($request, 'image', 'uploads/articles', null, $request->input('slug'));
 
         Article::create($data);
 
@@ -47,7 +47,7 @@ class ArticleController extends Controller
         $data['is_published'] = $request->boolean('is_published');
 
         $data['body'] = $this->linesToArray($request->input('body'));
-        $data['image'] = $this->upload($request, 'image', 'uploads/articles', $article->image);
+        $data['image'] = $this->upload($request, 'image', 'uploads/articles', $article->image, $article->slug);
 
         $article->update($data);
 
@@ -71,7 +71,7 @@ class ArticleController extends Controller
             'title' => ['required', 'max:255'],
             'published_at' => ['nullable', 'date'],
             'intro' => ['required'],
-            'image' => ['nullable', 'image', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_published' => ['nullable', 'boolean'],
         ]);

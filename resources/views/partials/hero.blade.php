@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                @include('partials.reference-image', ['name' => 'hero', 'alt' => 'FinanceLab flask and financial charts'])
+                <img src="/images/hero.webp" alt="FinanceLab financial intelligence">
                 <div class="hero-pillar-labels">
                     @foreach($pillars as $p)<div class="{{ $p['color'] }}"><strong>{{ $p['name'] }}</strong><span>{{ $p['verb'] }}</span></div>@endforeach
                 </div>

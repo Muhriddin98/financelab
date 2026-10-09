@@ -1,7 +1,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="site-header">
     <div class="container header-inner">
-        <a href="/" class="logo" aria-label="FinanceLab home"><span class="logo-symbol"><img src="/financelab-brand.png" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
+        <a href="/" class="logo" aria-label="FinanceLab home"><span class="logo-symbol"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
         <nav class="desktop-nav" aria-label="Main navigation">
             @foreach($siteNav as $n)<a href="{{ $n['href'] }}">{{ $n['label'] }}</a>@endforeach
         </nav>
@@ -17,7 +17,7 @@
 </header>
 <dialog class="mobile-drawer" id="mobile-drawer">
     <div class="drawer-top">
-        <a href="/" class="logo" aria-label="FinanceLab home"><span class="logo-symbol"><img src="/financelab-brand.png" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
+        <a href="/" class="logo" aria-label="FinanceLab home"><span class="logo-symbol"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
         <button id="menu-close" aria-label="Close navigation">@include('partials.lucide', ['name' => 'x'])</button>
     </div>
     <nav aria-label="Mobile navigation">

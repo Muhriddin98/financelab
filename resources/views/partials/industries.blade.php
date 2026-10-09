@@ -6,7 +6,7 @@
         <div class="industry-grid">
             @foreach($industries as $ind)
             <a href="/advisory/#{{ $ind['anchor'] }}" class="industry-card">
-                @include('partials.reference-image', ['name' => $industryImages[$ind['name']]])
+                <img src="{{ $industryImages[$ind['name']] }}" alt="" class="reference-image" style="object-fit:cover">
                 <div><h3>{{ $ind['name'] }}</h3><span class="circle-arrow">@include('partials.lucide', ['name' => 'arrow-up-right', 'size' => 16])</span></div>
             </a>
             @endforeach
