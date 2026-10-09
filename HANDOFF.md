@@ -8,37 +8,43 @@
 - Ish rejimi: user 4 yillik web dasturchi. Tasklarni bittadan beradi, men faqat o'shani bajaraman.
 - **Commit qoidasi: faqat user "commit qil" deganda commit. Push ni user cmd dan qiladi.**
 
-## 2. Muhit (bu mashinada — noutbukda farq qilishi mumkin, moslash!)
-- Loyiha: `D:\OSPanel\domains\financelab`
-- PHP: `D:\OSPanel\modules\php\PHP_8.1\php.exe` (PATH da php YOK)
-- Composer: `php D:\OSPanel\userdata\composer\composer.phar ...` (2.4-dev, eski)
-- Next.js source: `D:\FinanceLab-source\financelab`, cPanel build: `D:\FinanceLab-cPanel`
-- Live sayt: `https://financelab.uz/` (ESKI build!), local: `http://127.0.0.1:8000/`
-- Test server: `php artisan serve --host=127.0.0.1 --port=8001` (fon), keyin o'chirish.
-- Taqqoslash skripti: `C:\Users\muhri\AppData\Local\Temp\opencode\compare.ps1` (live vs local, `-ExecutionPolicy Bypass`)
+## 2. Muhit (mashinaga qarab farq qiladi, moslash!)
+- Ish PC: `D:\OSPanel\domains\financelab`, PHP: `D:\OSPanel\modules\php\PHP_8.1\php.exe`, Composer: `php D:\OSPanel\userdata\composer\composer.phar ...`
+- PATH da php/composer YO'Q. Test server: `artisan serve --host=127.0.0.1 --port=8001` (fon), keyin o'chirish.
+- Next.js source: `D:\FinanceLab-source\financelab`, cPanel build: `D:\FinanceLab-cPanel` (faqat ish PC da).
+- Live: `https://financelab.uz/` (ESKI build!), local: foydalanuvchi serveri (`:8000`).
+- Taqqoslash skripti: `compare.ps1` (temp/opencode da edi — kerak bo'lsa qayta yoz).
 
 ## 3. Arxitektura
-- Route → Controller → `SiteContent` service → View. View larda `config()` YOK (faqat `View::share` dagi chrome).
-- `app/Services/SiteContent.php` — kontent ombori (hozir: pages config, projects/articles DB).
-- Controllerlar: `HomeController`, `SectionController` (`->defaults('section', ...)` bilan!), `ProjectController`, `InsightController`, `MediaController`, `Admin\*`.
+- Route → Controller → `SiteContent` service → View. View larda `config()` YO'Q (faqat `View::share` chrome: siteNav, siteContact, siteName/Tagline/Description/Copyright).
+- `SectionController@show` route da `->defaults('section', ...)` bilan ishlaydi (placeholder yo'q!).
 - Sahifalar: `/`, 9 section, `/projects/{slug}`, `/insights/{slug}`, `/media/{slug}`, 404.
-- Admin: `/admin` (AdminLTE) — login, dashboard (widgetlar), articles/projects CRUD, profil, parol. `admin` middleware + `role=admin`.
-- Admin login: `admin@financelab.uz` / `password` (almashtirish kerak!).
-- Rasmlar: `public/uploads/...` (symlink shart emas). Modelda `image_url`, `href`, `date` accessorlar.
-- Telescope `/telescope` (local ochiq, prod gate bo'sh).
+- Admin `/admin` (AdminLTE): login, dashboard (so'nggi 5+5 widget), articles/projects CRUD, profil, parol. `admin` middleware + `role=admin`.
+- Admin: `admin@financelab.uz` / `password` (ALMASHTIRISH KERAK!).
+- Modellar: `Article` (`date`, `href`, `image_url` accessorlar), `Project` (`image_url`).
+- Telescope `/telescope` (local ochiq, prod gate bo'sh). `telescope:prune` schedule da YO'Q.
+- `.gitignore`: `/public/financelab_img` (53MB manba!), `/public/uploads` (user yuklaganlari).
 
-## 4. Topilgan muammolar (qayta bosma!)
-- **Blade `@if(` ni HTML ga yopishtirma**: `<span@if...` kompilyatsiyani buzadi. Inline shart → ternary `{{ }}`; `@foreach`/`@include` yopishsa bo'ladi.
-- **`{{ }}` qo'shtirnoqni escape qiladi** — HTML atribut ichidagi ternary `{!! !!}` bo'lsin.
-- **`next/image fill` inline style** talab qiladi (`position:absolute;height:100%;...`), CSS da yo'q.
-- **Live sayt ESKI**, source YANGI: 2 maqola `/insights/X` → `/media/X` ko'chgan. Launch da redirect shart!
-- Eski sprite kartalar slug-xarita bilan, yangilar yuklangan foto bilan (fallback bor).
+## 4. Rasmlar (2026-10-09 holati)
+- Manba: `public/financelab_img/` (17 fayl, git da YO'Q!) → `public/images/*.webp` (max 1600px, q82).
+- Logo: `logo.webp` (kolba, yozuvsiz). Hero: `hero.webp` foto (sprite o'rniga).
+- Kartalar ENDI SPRITE EMAS, foto: pillar (advisory/academy/media), industry (5 ta), project/insight (record `image`).
+- Sprite `design-reference.png` FAQAT founder portretida qoldi. O'chirilgan: `financelab-brand.png`, `architecture.webp`.
+- DB rasmlari: `UpdateContentImagesSeeder` (faqat image ustuni!) + `ContentSeeder` da yangi yo'llar.
+- **Upload pipeline** (`ManagesContent::upload`): validatsiya (img, 5MB) → resize 1600 → WebP82 → `slug-vaqt.webp` → eski o'chadi, yozuv o'chsa fayl o'chadi. Jonli testdan o'tgan.
+- Yangi maqola/loyiha rasmsiz bo'lsa karta/detail bo'sh chiqadi (500 YO'Q — fallback/guard bor).
 
-## 5. Bajarildi (git log da ko'rinadi)
-1. `ad51706` init. 2. `e01f9f7` faqat users migration. 3. `df25d81` Blade port (13 sahifa). 4. `195fae6` MVC+Telescope+AdminLTE. 5. `721ff18` CRUD+profil+menyu+widgetlar.
+## 5. Topilgan muammolar (qayta bosma!)
+- Blade `@if(` ni HTML ga yopishtirma (`<span@if` buzadi) → inline ternary `{{ }}`; `@foreach`/`@include` yopishsa bo'ladi.
+- `{{ }}` da atribut ternary `{!! !!}` bo'lsin (escape!).
+- `next/image fill` inline style talab qiladi (detail/article img larda bor).
+- Live ESKI, source YANGI: 2 maqola `/insights/X` → `/media/X`. Launch da redirect shart!
 
-## 6. Keyingi qadamlar (navbat bilan, user aytadi)
-- Email ochilgach: Contact forma backend (POST + mail + DB + Telescope).
-- 3 til (RU/UZ): avval inglizcha tugagan, tarjima keyin (ma'no kafolati yo'q — mijoz tekshiradi).
-- Launch: eski 2 URL ga redirect, Telescope gate email, admin parol, `telescope:prune` schedule.
-- Buyurtmachi qo'shimcha admin menyularni aytadi.
+## 6. Bajarildi (git log)
+`ad51706` init → `e01f9f7` users migration → `df25d81` Blade port → `195fae6` MVC+Telescope+AdminLTE → `721ff18` CRUD+profil+menyu → `49ef463` HANDOFF → `60ce1a0` rasmlar+pipeline (+navbar bold 15px, metrics 8+).
+
+## 7. Keyingi (user aytadi)
+- Email ochilgach: Contact backend (POST + mail + DB + Telescope).
+- 3 til (RU/UZ) — tarjima keyin, mijoz tekshiradi.
+- Launch: 2 redirect, Telescope gate email, admin parol, prune schedule.
+- Buyurtmachi qo'shimcha menyularni aytadi. `financelab_img` manbalarni saqla!
