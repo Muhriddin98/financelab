@@ -230,16 +230,16 @@ return [
         'heading' => 'A useful conversation starts with context.',
         'paragraphs' => [
             'Tell us what you are evaluating, where you are in the process and what decision you need to make.',
-            'Write directly or prepare a project brief. The form opens a draft in your email app for you to review and send. You can also download your brief.',
+            'Write directly or send a project brief below. Your message goes straight to FinanceLab. You can also download your brief.',
         ],
         'labels' => [
             'name' => 'Your name', 'email' => 'Email address',
             'organization' => 'Organization (optional)', 'interest' => 'Area of interest',
             'message' => 'Project or topic',
         ],
-        'button' => 'Prepare email',
-        'note' => 'Your email app opens with a draft. You review and send it there; this website does not send messages automatically.',
-        'success' => 'Your brief is ready. Check your downloads; it has not been sent.',
+        'button' => 'Send message',
+        'note' => 'Fill in the form and press the button — your message will be sent directly to FinanceLab.',
+        'success' => 'Thank you! Your message has been sent. We will get back to you soon.',
         'options' => ['Advisory', 'Academy', 'Media', 'General enquiry'],
     ],
 

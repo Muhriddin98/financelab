@@ -145,16 +145,16 @@ return [
         'heading' => 'Foydali suhbat kontekstdan boshlanadi.',
         'paragraphs' => [
             'Nimani baholayotganingizni, jarayonning qayeridaligingizni va qanday qaror qabul qilishingiz kerakligini ayting.',
-            'Toʻgʻridan-toʻgʻri yozing yoki loyiha tavsifini tayyorlang. Forma pochta ilovangizda tekshirish va yuborish uchun qoralama ochadi. Tavsifni yuklab olish ham mumkin.',
+            'Toʻgʻridan-toʻgʻri yozing yoki quyida loyiha tavsifini yuboring. Xabaringiz bevosita FinanceLab ga boradi. Tavsifni yuklab olish ham mumkin.',
         ],
         'labels' => [
             'name' => 'Ismingiz', 'email' => 'E-pochta manzili',
             'organization' => 'Tashkilot (ixtiyoriy)', 'interest' => 'Yoʻnalish',
             'message' => 'Loyiha yoki mavzu',
         ],
-        'button' => 'Xat tayyorlash',
-        'note' => 'Pochta ilovangiz qorlama bilan ochiladi. Uni oʻsha yerda tekshiring va yuboring; bu sayt xabarlarni avtomatik yubormaydi.',
-        'success' => 'Tavsif tayyor. Yuklamalarni tekshiring; u yuborilmadi.',
+        'button' => 'Xabar yuborish',
+        'note' => 'Formani toʻldiring va tugmani bosing — xabaringiz bevosita FinanceLab ga yuboriladi.',
+        'success' => 'Rahmat! Xabaringiz yuborildi. Tez orada bogʻlanamiz.',
         'options' => ['Konsalting', 'Akademiya', 'Media', 'Umumiy soʻrov'],
     ],
 ];

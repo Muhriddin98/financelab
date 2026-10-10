@@ -55,7 +55,7 @@ return [
     'discuss_topic' => 'Discuss a topic',
 
     'privacy_h1' => 'Information you enter',
-    'privacy_p1' => 'The project brief form processes your entries in your browser to prepare an email draft or a downloadable text file. The website does not send the message automatically or save your entries in browser storage. If you send the draft through your email app, your name, contact details and message are shared with FinanceLab at the address shown on the Contact page.',
+    'privacy_p1' => 'The form sends your entries directly to FinanceLab: the message is stored for handling your enquiry and forwarded to the address shown on the Contact page. Downloading the brief remains available and happens only in your browser.',
     'privacy_h2' => 'Website delivery',
     'privacy_p2' => 'The hosting provider may process technical information needed to deliver and protect this website, including network requests. This version does not add advertising or analytics trackers.',
     'privacy_h3' => 'Future contact services',
@@ -77,6 +77,6 @@ return [
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — Project brief',
     'js_brief_pending' => 'This brief was prepared locally and has not been sent.',
-    'js_status' => 'Please review and send the draft in your email app. If it does not open, use the email address on this page.',
-    'js_subject' => 'FinanceLab enquiry — ',
+    'form_sending' => 'Sending...',
+    'form_error' => 'Something went wrong. Please try again later.',
 ];

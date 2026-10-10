@@ -28,6 +28,9 @@
 - Modellar: `Article` (`date`, `href`, `image_url` accessorlar), `Project` (`image_url`).
 - Telescope `/telescope` (local ochiq, prod gate bo'sh). `telescope:prune` schedule da YO'Q.
 - `.gitignore`: `/public/financelab_img` (53MB manba!), `/public/uploads` (user yuklaganlari).
+- Ildiz `.htaccess`: hammasini `public/` ga rewrite (cPanel deploy uchun — docroot=public_html=loyiha ildizi). Local `financelab:82` ham shu rejimda.
+- `public/adminer.php` — user qo'ygan (DB boshqaruv, git da).
+- Kontakt forma: POST `/contact|/ru/contact|/uz/contact` → `ContactController@store` → validatsiya → `contact_messages` DB → Gmail SMTP (`financelab.messages@gmail.com`, App Password) → `sherovatov92@gmail.com` ga. Tugma "Send message" (3 til). Xat HTML shablon (`emails.contact`, inline CSS). `replyTo` — `new Address()` shart (assoc massiv ishlamaydi!). Privacy matni server-yuborishga moslangan (3 til).
 
 ## 4. Rasmlar (2026-10-09 holati)
 - Manba: `public/financelab_img/` (17 fayl, git da YO'Q!) → `public/images/*.webp` (max 1600px, q82).
@@ -48,10 +51,10 @@
 - `View::share` boot da EN — til middleware da qayta share shart, aks holda RU/UZ EN chiqadi.
 
 ## 6. Bajarildi (git log)
-`ad51706` init → `e01f9f7` users migration → `df25d81` Blade port → `195fae6` MVC+Telescope+AdminLTE → `721ff18` CRUD+profil+menyu → `49ef463` HANDOFF → `60ce1a0` rasmlar+pipeline (+navbar bold 15px, metrics 8+) → RU i18n (`/ru/`, `lang/ru/`) → UZ i18n (`/uz/`, `lang/uz/`, SetLocale/routes/Article umumlashtirildi, header da 3 til).
+`ad51706` init → `e01f9f7` users migration → `df25d81` Blade port → `195fae6` MVC+Telescope+AdminLTE → `721ff18` CRUD+profil+menyu → `49ef463` HANDOFF → `60ce1a0` rasmlar+pipeline (+navbar bold 15px, metrics 8+) → RU i18n (`/ru/`, `lang/ru/`) → UZ i18n (`/uz/`, `lang/uz/`, SetLocale/routes/Article umumlashtirildi, header da 3 til) → kontakt backend (contact_messages, Gmail SMTP, HTML xat).
 
 ## 7. Keyingi (user aytadi)
+- Kontakt: admin da murojaatlar ro'yxati (contact_messages jadvali tayyor), mijoz emailiga yakuniy test.
 - RU+UZ yakuniy tekshiruv: mijoz matnlarni ko'rsin (sana `12 Sep 2026` formati EN, noma'lum `/ru/*`, `/uz/*` da EN 404 — v1).
-- Email ochilgach: Contact backend (POST + mail + DB + Telescope).
 - Launch: 2 redirect, Telescope gate email, admin parol, prune schedule.
 - Buyurtmachi qo'shimcha menyularni aytadi. `financelab_img` manbalarni saqla!

@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Asosiy domen manzilini public papkasiga yo'naltirish
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

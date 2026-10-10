@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ContactMessage extends Model
+{
+    protected $fillable = [
+        'name', 'email', 'organization', 'interest',
+        'message', 'locale', 'ip', 'is_read',
+    ];
+
+    protected $casts = ['is_read' => 'boolean'];
+}

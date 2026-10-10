@@ -55,7 +55,7 @@ return [
     'discuss_topic' => 'Mavzuni muhokama qilish',
 
     'privacy_h1' => 'Kiritadigan maʼlumotlaringiz',
-    'privacy_p1' => 'Loyiha tavsifi formasi kiritilganlarni qoralama xat yoki yuklab olinadigan matn fayl tayyorlash uchun brauzeringizda qayta ishlaydi. Sayt xabarni avtomatik yubormaydi va kiritilganlarni brauzer xotirasida saqlamaydi. Qoralamani pochta ilovangiz orqali yuborsangiz, ismingiz, aloqa maʼlumotlaringiz va xabaringiz Bogʻlanish sahifasidagi manzilga FinanceLabʼga uzatiladi.',
+    'privacy_p1' => 'Forma kiritilganlarni bevosita FinanceLabʼga yuboradi: xabar murojaatni koʻrib chiqish uchun saqlanadi va Bogʻlanish sahifasidagi manzilga uzatiladi. Tavsifni yuklab olish ham mumkin va u faqat brauzeringizda bajariladi.',
     'privacy_h2' => 'Sayt ishi',
     'privacy_p2' => 'Xosting provayder saytni yetkazish va himoya qilish uchun zarur texnik axborotni, jumladan tarmoq soʻrovlarini qayta ishlashi mumkin. Bu versiyada reklama yoki tahlil kuzatuvchilari yoʻq.',
     'privacy_h3' => 'Kelajakdagi aloqa xizmatlari',
@@ -77,6 +77,6 @@ return [
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — loyiha tavsifi',
     'js_brief_pending' => 'Tavsif mahalliy tayyorlandi va yuborilmadi.',
-    'js_status' => 'Qoralamani pochta ilovangizda tekshiring va yuboring. Ochilmasa, shu sahifadagi manzildan foydalaning.',
-    'js_subject' => 'FinanceLabʼga soʻrov — ',
+    'form_sending' => 'Yuborilmoqda...',
+    'form_error' => 'Xatolik yuz berdi. Keyinroq urinib ko‘ring.',
 ];

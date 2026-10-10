@@ -33,35 +33,53 @@
         });
     }
 
-    // Contact form: mailto draft or downloadable brief (same as original site)
+    // Contact form: POST to server, or downloadable brief (client-side)
     var form = document.getElementById('contact-form');
     if (form) {
         var status = document.getElementById('form-status');
+        var sendBtn = form.querySelector('button[value="send"]');
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-            var values = new FormData(form);
-            var lines = [(form.getAttribute('data-brief-title') || 'FinanceLab — Project brief'), ''];
-            form.querySelectorAll('[data-label]').forEach(function (el) {
-                lines.push(el.getAttribute('data-label') + ': ' + (values.get(el.name) || '—'));
-                lines.push('');
-            });
-            lines.push(form.getAttribute('data-brief-pending') || 'This brief was prepared locally and has not been sent.');
-            var body = lines.join('\n');
-            var email = document.querySelector('.contact-email');
-            var to = email ? email.textContent.trim() : '';
             var isDownload = event.submitter && event.submitter.getAttribute('value') === 'download';
-            if (!isDownload) {
-                window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent((form.getAttribute('data-subject') || 'FinanceLab enquiry — ') + (values.get('interest') || '')) + '&body=' + encodeURIComponent(body);
-                status.textContent = form.getAttribute('data-status') || 'Please review and send the draft in your email app. If it does not open, use the email address on this page.';
+            if (isDownload) {
+                var values = new FormData(form);
+                var lines = [(form.getAttribute('data-brief-title') || 'FinanceLab — Project brief'), ''];
+                form.querySelectorAll('[data-label]').forEach(function (el) {
+                    lines.push(el.getAttribute('data-label') + ': ' + (values.get(el.name) || '—'));
+                    lines.push('');
+                });
+                lines.push(form.getAttribute('data-brief-pending') || 'This brief was prepared locally and has not been sent.');
+                var url = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' }));
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'FinanceLab-project-brief.txt';
+                a.click();
+                setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+                status.textContent = form.getAttribute('data-success') || 'Sent.';
                 return;
             }
-            var url = URL.createObjectURL(new Blob([body], { type: 'text/plain;charset=utf-8' }));
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = 'FinanceLab-project-brief.txt';
-            a.click();
-            setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-            status.textContent = form.getAttribute('data-success') || 'Your brief is ready. Check your downloads; it has not been sent.';
+            var btnText = sendBtn ? sendBtn.textContent : '';
+            if (sendBtn) sendBtn.disabled = true;
+            status.textContent = form.getAttribute('data-sending') || 'Sending...';
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value },
+                body: new FormData(form)
+            }).then(function (resp) {
+                return resp.json().then(function (data) { return { status: resp.status, data: data }; });
+            }).then(function (result) {
+                if (result.status === 422 && result.data.errors) {
+                    var first = Object.values(result.data.errors)[0];
+                    status.textContent = Array.isArray(first) ? first[0] : first;
+                } else {
+                    status.textContent = result.data.message || (form.getAttribute('data-error') || 'Error.');
+                }
+                if (result.data.ok) form.reset();
+            }).catch(function () {
+                status.textContent = form.getAttribute('data-error') || 'Error.';
+            }).finally(function () {
+                if (sendBtn) { sendBtn.disabled = false; sendBtn.textContent = btnText; }
+            });
         });
     }
 })();

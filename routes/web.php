@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InsightController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;use App\Http\Controllers\InsightController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SectionController;
@@ -24,3 +24,7 @@ $site = function () {
 $site();
 Route::prefix('ru')->group($site);
 Route::prefix('uz')->group($site);
+
+Route::post('contact', [ContactController::class, 'store'])->name('contact.send');
+Route::post('ru/contact', [ContactController::class, 'store'])->name('ru.contact.send');
+Route::post('uz/contact', [ContactController::class, 'store'])->name('uz.contact.send');
