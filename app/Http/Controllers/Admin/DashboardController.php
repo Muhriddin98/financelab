@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index()
     {
         $stats = [
-            'sections' => count($this->content->sectionNames()),
+            'messages' => \App\Models\ContactMessage::count(),
             'projects' => count($this->content->common()['projects']),
             'articles' => count($this->content->common()['insights']),
             'users' => \App\Models\User::count(),

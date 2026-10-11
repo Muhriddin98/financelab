@@ -23,9 +23,10 @@
 - `Article::href` til prefiksli; sana `date` EN formatda (`12 Sep 2026`). Kontakt forma JS matnlari `data-*` atributlardan (`site.js`).
 - `SectionController@show` route da `->defaults('section', ...)` bilan ishlaydi (placeholder yo'q!).
 - Sahifalar: `/`, 9 section, `/projects/{slug}`, `/insights/{slug}`, `/media/{slug}`, 404.
-- Admin `/admin` (AdminLTE): login, dashboard (so'nggi 5+5 widget), articles/projects CRUD, profil, parol. `admin` middleware + `role=admin`.
+- Admin `/admin` (AdminLTE): login, dashboard (Murojaatlar+Loyihalar+Maqolalar+Foydalanuvchilar), articles/projects CRUD, murojaatlar (faqat ko'rish), statik rasmlar (11 chrome rasm, o'rniga yoziladi), profil, parol. `admin` middleware + `role=admin`.
 - Admin: `admin@financelab.uz` / `password` (ALMASHTIRISH KERAK!).
-- Modellar: `Article` (`date`, `href`, `image_url` accessorlar), `Project` (`image_url`).
+- Modellar: `Article` (`date`, `href`, `image_url` accessorlar; `body` — HTML string, MEDIUMTEXT), `Project` (`image_url`).
+- Maqola matni: TinyMCE (self-hosted `public/vendor/tinymce/`, GPL) → `body` HTML → saytda `clean(...,'article')` (`config/purifier.php`). Matn ichi rasm: `POST admin/upload-image` → `uploads/articles` (WebP). Muqova Rasm maydoni YO'Q (matndagi 1-rasm kartaga avtomatik), `sort_order` UI da YO'Q (tartib Id bo'yicha, yangisi birinchi). Stillar: `.article-body` (`site.css`).
 - Telescope `/telescope` (local ochiq, prod gate bo'sh). `telescope:prune` schedule da YO'Q.
 - `.gitignore`: `/public/financelab_img` (53MB manba!), `/public/uploads` (user yuklaganlari).
 - Ildiz `.htaccess`: hammasini `public/` ga rewrite (cPanel deploy uchun — docroot=public_html=loyiha ildizi). Local `financelab:82` ham shu rejimda.
@@ -49,12 +50,14 @@
 - Tarjima qiymat kalit bo'lmasin: `$industryImages[$ind['name']]` RU da 500 berdi → `anchor` bilan (`SiteContent::common` rekey).
 - Metrika `value` ham tarjimada bo'lsin (`Multiple`/`Real-world` qoldig'i — `lang/ru|uz/site.php` metrics).
 - `View::share` boot da EN — til middleware da qayta share shart, aks holda RU/UZ EN chiqadi.
+- HTMLPurifier eski: `mark`/`figure`/`figcaption` Allowed da 500 beradi → ro'yxatdan chiqar (ajratish `backcolor` span bilan).
+- JSON kolonka CHECK: `body` JSON→TEXT migratsiyada `DROP CHECK` ishlamadi → yangi ustun+ma'lumot ko'chirish+eski o'chirish.
 
 ## 6. Bajarildi (git log)
-`ad51706` init → `e01f9f7` users migration → `df25d81` Blade port → `195fae6` MVC+Telescope+AdminLTE → `721ff18` CRUD+profil+menyu → `49ef463` HANDOFF → `60ce1a0` rasmlar+pipeline (+navbar bold 15px, metrics 8+) → RU i18n (`/ru/`, `lang/ru/`) → UZ i18n (`/uz/`, `lang/uz/`, SetLocale/routes/Article umumlashtirildi, header da 3 til) → kontakt backend (contact_messages, Gmail SMTP, HTML xat).
+`ad51706` init → `e01f9f7` users migration → `df25d81` Blade port → `195fae6` MVC+Telescope+AdminLTE → `721ff18` CRUD+profil+menyu → `49ef463` HANDOFF → `60ce1a0` rasmlar+pipeline (+navbar bold 15px, metrics 8+) → RU i18n (`/ru/`, `lang/ru/`) → UZ i18n (`/uz/`, `lang/uz/`, SetLocale/routes/Article umumlashtirildi, header da 3 til) → kontakt backend (contact_messages, Gmail SMTP, HTML xat) → murojaatlar (read-only) + dashboard Murojaatlar + statik rasmlar (`config/static_images.php`, `ManagesContent::convertToWebp` reuse) → maqola rich-text (TinyMCE, `body` HTML, purifier, matn ichi rasm) → forma soddalashdi (maqolada Rasm/Tartib yo'q, muqova matnga ko'chdi, karta rasmi avtomatik; Tartib hamma joyda olib tashlandi, tartib Id bo'yicha).
 
 ## 7. Keyingi (user aytadi)
-- Kontakt: admin da murojaatlar ro'yxati (contact_messages jadvali tayyor), mijoz emailiga yakuniy test.
+- Kontakt: mijoz emailiga yakuniy test (`sherovatov92@gmail.com` ga jonli xat).
 - RU+UZ yakuniy tekshiruv: mijoz matnlarni ko'rsin (sana `12 Sep 2026` formati EN, noma'lum `/ru/*`, `/uz/*` da EN 404 — v1).
 - Launch: 2 redirect, Telescope gate email, admin parol, prune schedule.
 - Buyurtmachi qo'shimcha menyularni aytadi. `financelab_img` manbalarni saqla!

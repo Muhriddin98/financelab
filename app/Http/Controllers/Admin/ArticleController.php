@@ -13,7 +13,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::orderBy('sort_order')->get();
+        $articles = Article::latest()->get();
 
         return view('admin.articles.index', compact('articles'));
     }
@@ -28,8 +28,8 @@ class ArticleController extends Controller
         $data = $this->validated($request);
         $data['is_published'] = $request->boolean('is_published');
 
-        $data['body'] = $this->linesToArray($request->input('body'));
-        $data['image'] = $this->upload($request, 'image', 'uploads/articles', null, $request->input('slug'));
+        // Karta uchun kichik rasm matndagi birinchi rasmdan olinadi.
+        $data['image'] = $this->firstInlineImage($data['body'] ?? null);
 
         Article::create($data);
 
@@ -46,8 +46,7 @@ class ArticleController extends Controller
         $data = $this->validated($request, $article->id);
         $data['is_published'] = $request->boolean('is_published');
 
-        $data['body'] = $this->linesToArray($request->input('body'));
-        $data['image'] = $this->upload($request, 'image', 'uploads/articles', $article->image, $article->slug);
+        $data['image'] = $this->firstInlineImage($data['body'] ?? null);
 
         $article->update($data);
 
@@ -56,7 +55,7 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-        $this->deleteFile($article->image);
+        // Fayl o'chirilmaydi — matn ichi rasmlar umumiy bo'lishi mumkin.
         $article->delete();
 
         return redirect()->route('admin.articles.index')->with('success', 'Maqola o‘chirildi.');
@@ -71,9 +70,31 @@ class ArticleController extends Controller
             'title' => ['required', 'max:255'],
             'published_at' => ['nullable', 'date'],
             'intro' => ['required'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
-            'sort_order' => ['nullable', 'integer', 'min:0'],
+            'body' => ['required', 'string', 'max:200000'],
             'is_published' => ['nullable', 'boolean'],
         ]);
+    }
+
+    /** Matndagi birinchi lokal rasm (karta uchun). Tashqi URL qaytarilmaydi. */
+    protected function firstInlineImage(?string $html): ?string
+    {
+        if (! $html || ! preg_match('/<img[^>]+src=["\']([^"\']+)["\']/i', $html, $m)) {
+            return null;
+        }
+
+        return str_starts_with($m[1], '/') && ! str_starts_with($m[1], '//') ? $m[1] : null;
+    }
+
+    /** TinyMCE matn ichi rasmi: uploads/articles, WebP. {location} qaytaradi. */
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+        ]);
+
+        $path = $this->upload($request, 'file', 'uploads/articles', null);
+        abort_if(! $path, 422, 'Rasm saqlanmadi.');
+
+        return response()->json(['location' => '/'.$path]);
     }
 }

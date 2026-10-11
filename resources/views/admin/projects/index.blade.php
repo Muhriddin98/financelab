@@ -20,7 +20,7 @@
                 <tbody>
                     @forelse($projects as $p)
                     <tr>
-                        <td>{{ $p->sort_order }}</td>
+                        <td>{{ $p->id }}</td>
                         <td>{{ $p->title }}</td>
                         <td>{{ $p->industry }}</td>
                         <td><code>{{ $p->slug }}</code></td>

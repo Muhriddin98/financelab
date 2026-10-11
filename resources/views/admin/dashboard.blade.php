@@ -10,8 +10,8 @@
     <div class="row">
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
-                <div class="inner"><h3>{{ $stats['sections'] }}</h3><p>Sahifa bo'limlari</p></div>
-                <div class="icon"><i class="fas fa-file-alt"></i></div>
+                <div class="inner"><h3>{{ $stats['messages'] }}</h3><p>Murojaatlar</p></div>
+                <div class="icon"><i class="fas fa-envelope"></i></div>
             </div>
         </div>
         <div class="col-lg-3 col-6">

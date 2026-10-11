@@ -51,7 +51,7 @@ class ContentSeeder extends Seeder
                     'published_at' => Carbon::parse($a['date']),
                     'image' => $articleImages[$a['slug']] ?? $a['image'],
                     'intro' => $a['intro'],
-                    'body' => $a['body'],
+                    'body' => implode('', array_map(fn ($p) => '<p>'.e($p).'</p>', $a['body'])),
                     'sort_order' => $i,
                     'is_published' => true,
                 ]

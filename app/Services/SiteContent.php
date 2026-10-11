@@ -112,7 +112,7 @@ class SiteContent
 
     public function projects()
     {
-        return Project::where('is_published', true)->orderBy('sort_order')->get();
+        return Project::where('is_published', true)->orderByDesc('id')->get();
     }
 
     public function project(string $slug): ?Project
@@ -122,7 +122,7 @@ class SiteContent
 
     public function articles()
     {
-        return Article::where('is_published', true)->orderBy('sort_order')->get();
+        return Article::where('is_published', true)->orderByDesc('id')->get();
     }
 
     public function analytical()

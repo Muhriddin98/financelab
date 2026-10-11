@@ -20,7 +20,7 @@
                 <tbody>
                     @forelse($articles as $a)
                     <tr>
-                        <td>{{ $a->sort_order }}</td>
+                        <td>{{ $a->id }}</td>
                         <td>{{ $a->title }}</td>
                         <td>
                             @if($a->isMedia())<span class="badge badge-info">Media</span>

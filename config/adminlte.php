@@ -322,6 +322,16 @@ return [
             'url' => 'admin/projects',
             'icon' => 'fas fa-fw fa-briefcase',
         ],
+        [
+            'text' => 'Murojaatlar',
+            'url' => 'admin/messages',
+            'icon' => 'fas fa-fw fa-envelope',
+        ],
+        [
+            'text' => 'Statik rasmlar',
+            'url' => 'admin/static-images',
+            'icon' => 'fas fa-fw fa-images',
+        ],
         ['header' => 'HISOB'],
         [
             'text' => 'Profil',

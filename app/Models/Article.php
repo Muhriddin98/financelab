@@ -14,7 +14,6 @@ class Article extends Model
 
     protected $casts = [
         'published_at' => 'date',
-        'body' => 'array',
         'is_published' => 'boolean',
     ];
 

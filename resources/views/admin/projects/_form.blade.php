@@ -30,10 +30,6 @@
             @endif
             <input type="file" name="image" class="form-control-file" accept="image/*">
         </div>
-        <div class="form-group">
-            <label>Tartib</label>
-            <input type="number" name="sort_order" value="{{ old('sort_order', $project->sort_order ?? 0) }}" class="form-control" min="0">
-        </div>
         <div class="form-check">
             <input type="checkbox" name="is_published" value="1" class="form-check-input" id="pub" {{ old('is_published', $project->is_published ?? true) ? 'checked' : '' }}>
             <label class="form-check-label" for="pub">Nashr qilish</label>

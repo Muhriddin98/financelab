@@ -13,7 +13,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::orderBy('sort_order')->get();
+        $projects = Project::latest()->get();
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -70,7 +70,6 @@ class ProjectController extends Controller
             'title' => ['required', 'max:255'],
             'description' => ['required'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
-            'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_published' => ['nullable', 'boolean'],
         ]);
     }
