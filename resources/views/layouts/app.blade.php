@@ -11,12 +11,12 @@
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <meta property="og:locale" content="{{ ($locale ?? 'en') === 'ru' ? 'ru_RU' : (($locale ?? 'en') === 'uz' ? 'uz_UZ' : 'en_US') }}">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/site.css?v={{ @filemtime(public_path('css/site.css')) ?: 1 }}">
 </head>
 <body>
 @include('partials.header')
 @yield('content')
 @include('partials.footer')
-<script src="/js/site.js"></script>
+<script src="/js/site.js?v={{ @filemtime(public_path('js/site.js')) ?: 1 }}"></script>
 </body>
 </html>

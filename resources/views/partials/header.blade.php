@@ -23,5 +23,10 @@
     <nav aria-label="Mobile navigation">
         @foreach(array_merge($siteNav, [['label' => __('ui.contact'), 'href' => ($localePrefix ?? '').'/contact/']]) as $n)<a href="{{ $n['href'] }}">{{ $n['label'] }}</a>@endforeach
     </nav>
+    <div class="drawer-language">
+        <a href="{{ $enUrl ?? '/' }}" @if(($locale ?? 'en') === 'en') aria-current="true" @endif>EN</a>
+        <a href="{{ $ruUrl ?? '/ru' }}" @if(($locale ?? 'en') === 'ru') aria-current="true" @endif>RU</a>
+        <a href="{{ $uzUrl ?? '/uz' }}" @if(($locale ?? 'en') === 'uz') aria-current="true" @endif>UZ</a>
+    </div>
     <p>{{ $siteTagline }}</p>
 </dialog>
