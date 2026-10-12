@@ -25,9 +25,10 @@
 - Sahifalar: `/`, 9 section, `/projects/{slug}`, `/insights/{slug}`, `/media/{slug}`, 404.
 - Admin `/admin` (AdminLTE): login, dashboard (Murojaatlar+Loyihalar+Maqolalar+Foydalanuvchilar), articles/projects CRUD, murojaatlar (faqat ko'rish), statik rasmlar (11 chrome rasm, o'rniga yoziladi), profil, parol. `admin` middleware + `role=admin`.
 - Admin: `admin@financelab.uz` / `password` (ALMASHTIRISH KERAK!).
+- Maqola/loyiha `locale` (en/ru/uz): SiteContent filter, admin da "Til prefiksi", slug unique (slug+locale). EN da faqat EN ko'rinadi.
 - Modellar: `Article` (`date`, `href`, `image_url` accessorlar; `body` — HTML string, MEDIUMTEXT), `Project` (`image_url`).
 - Maqola matni: TinyMCE (self-hosted `public/vendor/tinymce/`, GPL) → `body` HTML → saytda `clean(...,'article')` (`config/purifier.php`). Matn ichi rasm: `POST admin/upload-image` → `uploads/articles` (WebP). Muqova Rasm maydoni YO'Q (matndagi 1-rasm kartaga avtomatik), `sort_order` UI da YO'Q (tartib Id bo'yicha, yangisi birinchi). Stillar: `.article-body` (`site.css`).
-- Telescope `/telescope` (local ochiq, prod gate bo'sh). `telescope:prune` schedule da YO'Q.
+- Telescope `/telescope` (prod: `TELESCOPE_ENABLED=false`). Prune: `telescope:prune --hours=72` daily (`Kernel.php`) + cPanel cron har daqiqa. MUHIM: hosting CLI PHP segfault beradi (biror extension) → cron minimal to'plamda: `php -n -d extension_dir=... -d extension=mbstring.so,pdo.so,pdo_mysql.so,dom.so artisan schedule:run`. Sayt web SAPI da — unga taalluqli emas.
 - `.gitignore`: `/public/financelab_img` (53MB manba!), `/public/uploads` (user yuklaganlari).
 - Ildiz `.htaccess`: hammasini `public/` ga rewrite (cPanel deploy uchun — docroot=public_html=loyiha ildizi). Local `financelab:82` ham shu rejimda.
 - `public/adminer.php` — user qo'ygan (DB boshqaruv, git da).
@@ -57,7 +58,6 @@
 `ad51706` init → `e01f9f7` users migration → `df25d81` Blade port → `195fae6` MVC+Telescope+AdminLTE → `721ff18` CRUD+profil+menyu → `49ef463` HANDOFF → `60ce1a0` rasmlar+pipeline (+navbar bold 15px, metrics 8+) → RU i18n (`/ru/`, `lang/ru/`) → UZ i18n (`/uz/`, `lang/uz/`, SetLocale/routes/Article umumlashtirildi, header da 3 til) → kontakt backend (contact_messages, Gmail SMTP, HTML xat) → murojaatlar (read-only) + dashboard Murojaatlar + statik rasmlar (`config/static_images.php`, `ManagesContent::convertToWebp` reuse) → maqola rich-text (TinyMCE, `body` HTML, purifier, matn ichi rasm) → forma soddalashdi (maqolada Rasm/Tartib yo'q, muqova matnga ko'chdi, karta rasmi avtomatik; Tartib hamma joyda olib tashlandi, tartib Id bo'yicha).
 
 ## 7. Keyingi (user aytadi)
-- Kontakt: mijoz emailiga yakuniy test (`sherovatov92@gmail.com` ga jonli xat).
-- RU+UZ yakuniy tekshiruv: mijoz matnlarni ko'rsin (sana `12 Sep 2026` formati EN, noma'lum `/ru/*`, `/uz/*` da EN 404 — v1).
-- Launch: 2 redirect, Telescope gate email, admin parol, prune schedule.
-- Buyurtmachi qo'shimcha menyularni aytadi. `financelab_img` manbalarni saqla!
+- Launch yakuni: APP_DEBUG=false ✅, Telescope yopiq ✅, prune+cron ✅ (hosting segfault → minimal ext to'plam), admin parol (mijoz), redirectlar KERAK EMAS (sayt 3 kunlik, indeks yo'q).
+- Kontakt: mijoz emailiga test YUBORILDI ✅ (`sherovatov92@gmail.com`, ok:true).
+- RU+UZ kontent: admin orqali tarjimalar qo'shilmoqda (bir xil slug + Til prefiksi).

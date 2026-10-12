@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Telescope yozuvlari: 72 soatdan eskisi har kuni tozalanadi.
+        $schedule->command('telescope:prune --hours=72')->daily();
     }
 
     /**
