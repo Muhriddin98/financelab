@@ -112,17 +112,17 @@ class SiteContent
 
     public function projects()
     {
-        return Project::where('is_published', true)->orderByDesc('id')->get();
+        return Project::where('is_published', true)->where('locale', app()->getLocale())->orderByDesc('id')->get();
     }
 
     public function project(string $slug): ?Project
     {
-        return Project::where('slug', $slug)->where('is_published', true)->first();
+        return Project::where('slug', $slug)->where('locale', app()->getLocale())->where('is_published', true)->first();
     }
 
     public function articles()
     {
-        return Article::where('is_published', true)->orderByDesc('id')->get();
+        return Article::where('is_published', true)->where('locale', app()->getLocale())->orderByDesc('id')->get();
     }
 
     public function analytical()
@@ -137,14 +137,14 @@ class SiteContent
 
     public function insight(string $slug): ?Article
     {
-        $article = Article::where('slug', $slug)->where('is_published', true)->first();
+        $article = Article::where('slug', $slug)->where('locale', app()->getLocale())->where('is_published', true)->first();
 
         return $article && ! $article->isMedia() ? $article : null;
     }
 
     public function mediaArticle(string $slug): ?Article
     {
-        $article = Article::where('slug', $slug)->where('is_published', true)->first();
+        $article = Article::where('slug', $slug)->where('locale', app()->getLocale())->where('is_published', true)->first();
 
         return $article && $article->isMedia() ? $article : null;
     }

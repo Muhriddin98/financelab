@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = [
-        'slug', 'type', 'category', 'title', 'published_at',
+        'slug', 'locale', 'type', 'category', 'title', 'published_at',
         'image', 'intro', 'body', 'sort_order', 'is_published',
     ];
 

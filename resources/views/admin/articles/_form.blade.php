@@ -23,6 +23,14 @@
             </select>
         </div>
         <div class="form-group">
+            <label>Til prefiksi</label>
+            <select name="locale" class="form-control">
+                @foreach(['en' => 'EN', 'ru' => 'RU', 'uz' => 'UZ'] as $val => $label)
+                <option value="{{ $val }}" {{ old('locale', $article->locale ?? 'en') === $val ? 'selected' : '' }}>{{ $label }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label>Slug</label>
             <input type="text" name="slug" value="{{ old('slug', $article->slug ?? '') }}" class="form-control" required maxlength="100">
         </div>

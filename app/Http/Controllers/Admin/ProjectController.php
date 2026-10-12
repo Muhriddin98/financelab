@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Concerns\ManagesContent;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -65,7 +66,8 @@ class ProjectController extends Controller
     protected function validated(Request $request, ?int $ignoreId = null): array
     {
         return $request->validate([
-            'slug' => ['required', 'alpha_dash', 'max:100', 'unique:projects,slug'.($ignoreId ? ','.$ignoreId : '')],
+            'slug' => ['required', 'alpha_dash', 'max:100', Rule::unique('projects', 'slug')->where('locale', $request->input('locale'))->ignore($ignoreId)],
+            'locale' => ['required', 'in:en,ru,uz'],
             'industry' => ['required', 'max:100'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],

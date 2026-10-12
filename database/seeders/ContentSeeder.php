@@ -28,7 +28,7 @@ class ContentSeeder extends Seeder
 
         foreach ($site['projects'] as $i => $p) {
             Project::updateOrCreate(
-                ['slug' => $p['slug']],
+                ['slug' => $p['slug'], 'locale' => 'en'],
                 [
                     'industry' => $p['industry'],
                     'title' => $p['title'],
@@ -43,7 +43,7 @@ class ContentSeeder extends Seeder
 
         foreach ($site['insights'] as $i => $a) {
             Article::updateOrCreate(
-                ['slug' => $a['slug']],
+                ['slug' => $a['slug'], 'locale' => 'en'],
                 [
                     'type' => in_array($a['slug'], $mediaSlugs) ? 'media' : 'insight',
                     'category' => $a['category'],

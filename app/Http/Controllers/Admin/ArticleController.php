@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Concerns\ManagesContent;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ArticleController extends Controller
 {
@@ -64,7 +65,8 @@ class ArticleController extends Controller
     protected function validated(Request $request, ?int $ignoreId = null): array
     {
         return $request->validate([
-            'slug' => ['required', 'alpha_dash', 'max:100', 'unique:articles,slug'.($ignoreId ? ','.$ignoreId : '')],
+            'slug' => ['required', 'alpha_dash', 'max:100', Rule::unique('articles', 'slug')->where('locale', $request->input('locale'))->ignore($ignoreId)],
+            'locale' => ['required', 'in:en,ru,uz'],
             'type' => ['required', 'in:insight,media'],
             'category' => ['required', 'max:100'],
             'title' => ['required', 'max:255'],

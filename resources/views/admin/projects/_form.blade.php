@@ -16,6 +16,14 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
+            <label>Til prefiksi</label>
+            <select name="locale" class="form-control">
+                @foreach(['en' => 'EN', 'ru' => 'RU', 'uz' => 'UZ'] as $val => $label)
+                <option value="{{ $val }}" {{ old('locale', $project->locale ?? 'en') === $val ? 'selected' : '' }}>{{ $label }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label>Slug</label>
             <input type="text" name="slug" value="{{ old('slug', $project->slug ?? '') }}" class="form-control" required maxlength="100">
         </div>

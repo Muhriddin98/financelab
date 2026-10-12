@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $fillable = [
-        'slug', 'industry', 'title', 'description', 'image',
+        'slug', 'locale', 'industry', 'title', 'description', 'image',
         'scope', 'sort_order', 'is_published',
     ];
 

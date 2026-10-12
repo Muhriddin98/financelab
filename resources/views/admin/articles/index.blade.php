@@ -15,13 +15,14 @@
         <div class="card-body p-0">
             <table class="table table-striped mb-0">
                 <thead>
-                    <tr><th>#</th><th>Sarlavha</th><th>Tur</th><th>Kategoriya</th><th>Sana</th><th>Holat</th><th></th></tr>
+                    <tr><th>#</th><th>Sarlavha</th><th>Til</th><th>Tur</th><th>Kategoriya</th><th>Sana</th><th>Holat</th><th></th></tr>
                 </thead>
                 <tbody>
                     @forelse($articles as $a)
                     <tr>
                         <td>{{ $a->id }}</td>
                         <td>{{ $a->title }}</td>
+                        <td><span class="badge badge-dark">{{ strtoupper($a->locale) }}</span></td>
                         <td>
                             @if($a->isMedia())<span class="badge badge-info">Media</span>
                             @else<span class="badge badge-primary">Insight</span>@endif

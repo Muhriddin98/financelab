@@ -15,13 +15,14 @@
         <div class="card-body p-0">
             <table class="table table-striped mb-0">
                 <thead>
-                    <tr><th>#</th><th>Sarlavha</th><th>Soha</th><th>Slug</th><th>Holat</th><th></th></tr>
+                    <tr><th>#</th><th>Sarlavha</th><th>Til</th><th>Soha</th><th>Slug</th><th>Holat</th><th></th></tr>
                 </thead>
                 <tbody>
                     @forelse($projects as $p)
                     <tr>
                         <td>{{ $p->id }}</td>
                         <td>{{ $p->title }}</td>
+                        <td><span class="badge badge-dark">{{ strtoupper($p->locale) }}</span></td>
                         <td>{{ $p->industry }}</td>
                         <td><code>{{ $p->slug }}</code></td>
                         <td>
