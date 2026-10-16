@@ -1,6 +1,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Eski /public/* indekslar tozalansin (THE_REQUEST — sikl bo'lmaydi)
+    RewriteCond %{THE_REQUEST} \s/public/(\S*)
+    RewriteRule ^public/(.*)$ /$1 [L,R=301]
+
     # Asosiy domen manzilini public papkasiga yo'naltirish
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
