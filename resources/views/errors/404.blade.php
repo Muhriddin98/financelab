@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+<meta name="robots" content="noindex, nofollow">
+@endsection
+
 @section('content')
 <main id="main">
     <section class="page-heading">

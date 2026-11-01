@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;use App\Http\Controllers\InsightControll
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\SitemapController;
 use App\Services\SiteContent;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,10 @@ $site = function () {
 };
 
 $site();
-Route::prefix('ru')->group($site);
-Route::prefix('uz')->group($site);
+Route::prefix('ru')->name('ru.')->group($site);
+Route::prefix('uz')->name('uz.')->group($site);
+
+Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::post('contact', [ContactController::class, 'store'])->name('contact.send');
 Route::post('ru/contact', [ContactController::class, 'store'])->name('ru.contact.send');

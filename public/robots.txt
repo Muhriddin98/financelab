@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /adminer.php
+Disallow: /telescope/
+
+Sitemap: https://financelab.uz/sitemap.xml

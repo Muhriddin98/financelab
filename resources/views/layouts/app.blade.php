@@ -10,7 +10,12 @@
     <meta property="og:description" content="{{ $metaDescription ?? $siteDescription }}">
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <meta property="og:locale" content="{{ ($locale ?? 'en') === 'ru' ? 'ru_RU' : (($locale ?? 'en') === 'uz' ? 'uz_UZ' : 'en_US') }}">
-    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="{{ rtrim(url()->current(), '/').'/' }}">
+    <link rel="alternate" hreflang="en" href="{{ rtrim(url($enUrl ?? '/'), '/').'/' }}">
+    <link rel="alternate" hreflang="ru" href="{{ rtrim(url($ruUrl ?? '/ru'), '/').'/' }}">
+    <link rel="alternate" hreflang="uz" href="{{ rtrim(url($uzUrl ?? '/uz'), '/').'/' }}">
+    <link rel="alternate" hreflang="x-default" href="{{ rtrim(url($enUrl ?? '/'), '/').'/' }}">
+    @yield('head')
     <link rel="stylesheet" href="/css/site.css?v={{ @filemtime(public_path('css/site.css')) ?: 1 }}">
 </head>
 <body>
