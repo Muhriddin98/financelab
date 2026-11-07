@@ -1,7 +1,7 @@
 <a class="skip-link" href="#main">{{ __('ui.skip') }}</a>
 <header class="site-header" id="site-header">
     <div class="container header-inner">
-        <a href="{{ ($localePrefix ?? '').'/' }}" class="logo" aria-label="{{ __('ui.logo_home') }}"><span class="logo-symbol"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
+        <a href="{{ ($localePrefix ?? '').'/' }}" class="logo" aria-label="{{ __('ui.logo_home') }}"><span class="logo"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
         <nav class="desktop-nav" aria-label="Main navigation">
             @foreach($siteNav as $n)<a href="{{ $n['href'] }}">{{ $n['label'] }}</a>@endforeach
         </nav>

@@ -42,12 +42,16 @@ class StaticImageController extends Controller
             'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
         ]);
 
-        // O'sha yo'lga qayta yoziladi (1600px, WebP q82) — havolalar buzilmaydi.
-        $this->convertToWebp(
+        // O'sha yo'lga qayta yoziladi — o'lcham/sifat config/static_images.php dan.
+        $ok = $this->convertToWebp(
             $request->file('image')->getPathname(),
             public_path($image['path']),
-            1600, 82
+            $image['max'] ?? 1600, $image['quality'] ?? 82
         );
+
+        if (! $ok) {
+            return back()->with('error', 'Rasm saqlanmadi (WebP yozishda xato). Boshqa fayl bilan urinib ko‘ring.');
+        }
 
         return redirect()->route('admin.static-images.index')->with('success', $image['label'].' yangilandi.');
     }

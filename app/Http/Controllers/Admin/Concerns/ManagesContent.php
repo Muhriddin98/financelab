@@ -43,7 +43,7 @@ trait ManagesContent
         return $dir.'/'.$name;
     }
 
-    protected function convertToWebp(string $source, string $target, int $maxWidth, int $quality): void
+    protected function convertToWebp(string $source, string $target, int $maxWidth, int $quality): bool
     {
         [$width, $height, $type] = getimagesize($source);
 
@@ -68,8 +68,10 @@ trait ManagesContent
 
         imagealphablending($image, false);
         imagesavealpha($image, true);
-        imagewebp($image, $target, $quality);
+        $ok = imagewebp($image, $target, $quality);
         imagedestroy($image);
+
+        return (bool) $ok;
     }
 
     protected function deleteFile(?string $path): void

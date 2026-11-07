@@ -1,5 +1,5 @@
 <section class="hero">
-    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-bg" aria-hidden="true"><img src="/images/hero.webp?v={{ @filemtime(public_path('images/hero.webp')) ?: 1 }}" alt=""></div>
     <div class="container">
         <div class="hero-main">
             <div class="hero-copy">
@@ -11,12 +11,7 @@
                     <a href="{{ ($localePrefix ?? '').'/contact/' }}" class="button secondary">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <img src="/images/hero.webp" alt="{{ __('ui.hero_alt') }}">
-                <div class="hero-pillar-labels">
-                    @foreach($pillars as $p)<div class="{{ $p['color'] }}"><strong>{{ $p['name'] }}</strong><span>{{ $p['verb'] }}</span></div>@endforeach
-                </div>
-            </div>
+            <div class="hero-visual" aria-hidden="true"></div>
         </div>
         <div class="hero-bottom">
             <div class="metrics">

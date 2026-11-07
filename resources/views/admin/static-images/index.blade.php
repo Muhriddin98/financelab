@@ -17,7 +17,7 @@
                 <tbody>
                     @forelse($images as $img)
                     <tr>
-                        <td><img src="{{ $img['url'] }}" alt="" style="height:40px;max-width:80px;object-fit:cover;border-radius:4px"></td>
+                        <td><img src="{{ $img['url'] }}?v={{ @filemtime(public_path($img['path'])) ?: 1 }}" alt="" style="height:40px;max-width:80px;object-fit:cover;border-radius:4px"></td>
                         <td>{{ $img['label'] }}</td>
                         <td><small class="text-muted">/{{ $img['path'] }}</small></td>
                         <td>{{ $img['dimensions'] }}</td>

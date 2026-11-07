@@ -12,12 +12,12 @@
             @csrf @method('PUT')
             <div class="card-body">
                 <p><small class="text-muted">/{{ $image['path'] }} · {{ $image['hint'] }}</small></p>
-                <p><img src="{{ $image['url'] }}" alt="" style="max-width:400px;max-height:250px;object-fit:contain;border:1px solid #dee2e6;border-radius:4px"></p>
+                <p><img src="{{ $image['url'] }}?v={{ @filemtime(public_path($image['path'])) ?: 1 }}" alt="" style="max-width:400px;max-height:250px;object-fit:contain;border:1px solid #dee2e6;border-radius:4px"></p>
                 <div class="form-group">
                     <label>Yangi rasm (jpg/png/webp, max 5MB)</label>
                     <input type="file" name="image" class="form-control-file @error('image') is-invalid @enderror" required accept=".jpg,.jpeg,.png,.webp">
                     @error('image')<span class="invalid-feedback d-block">{{ $message }}</span>@enderror
-                    <small class="form-text text-muted">1600px dan katta bo‘lsa kichrayadi, WebP (q82) ga o‘tadi. Eski fayl o‘rniga yoziladi.</small>
+                    <small class="form-text text-muted">{{ ($image['max'] ?? 1600) }}px dan katta bo‘lsa kichrayadi, WebP (q{{ ($image['quality'] ?? 82) }}) ga o‘tadi. Eski fayl o‘rniga yoziladi.</small>
                 </div>
             </div>
             <div class="card-footer">
