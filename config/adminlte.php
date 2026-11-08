@@ -323,6 +323,11 @@ return [
             'icon' => 'fas fa-fw fa-briefcase',
         ],
         [
+            'text' => 'Portfolio',
+            'url' => 'admin/portfolio',
+            'icon' => 'fas fa-fw fa-table',
+        ],
+        [
             'text' => 'Murojaatlar',
             'url' => 'admin/messages',
             'icon' => 'fas fa-fw fa-envelope',

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\StaticImageController;
@@ -23,6 +24,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('static-images/{key}', [StaticImageController::class, 'update'])->name('static-images.update');
         Route::resource('projects', ProjectController::class)->except('show');
         Route::resource('articles', ArticleController::class)->except('show');
+        Route::resource('portfolio', PortfolioController::class)->except('show');
         Route::post('upload-image', [ArticleController::class, 'uploadImage'])->name('upload-image');
         Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');

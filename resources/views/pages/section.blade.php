@@ -63,6 +63,7 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
     @if($section === 'projects')
     <section class="detail-section">
         <div class="container">
+            <div class="split-head"><h2>{{ __('ui.featured_title') }}</h2></div>
             <div class="project-grid">
                 @foreach($projects as $p)
                 <a href="{{ ($localePrefix ?? '').'/projects/'.$p['slug'].'/' }}" class="project-card">
@@ -75,6 +76,41 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
                     </div>
                     <div class="project-copy"><p class="card-category">{{ $p['industry'] }}</p><h3>{{ $p['title'] }}</h3><p>{{ $p['description'] }}</p><span class="circle-arrow">@include('partials.lucide', ['name' => 'arrow-up-right', 'size' => 16])</span></div>
                 </a>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <section class="detail-section" id="portfolio">
+        <div class="container">
+            <div class="split-head"><h2>{{ __('ui.portfolio_title') }}</h2><p>{{ __('ui.portfolio_sub') }}</p></div>
+            <div class="industry-accordion">
+                @foreach($portfolio as $gi => $ind)
+                @php $icon = ['mountain','car','factory','zap','landmark'][$gi] ?? 'briefcase'; @endphp
+                <details class="ind-acc" @if($gi === 0) open @endif>
+                    <summary>
+                        <span class="ind-acc-icon">@include('partials.lucide', ['name' => $icon, 'size' => 26])</span>
+                        <strong>{{ $ind['name'] }}</strong>
+                        <span class="ind-acc-count">{{ $ind['projects']->count() }} {{ __('ui.projects_badge') }}</span>
+                        <span class="ind-acc-chevron">@include('partials.lucide', ['name' => 'chevron-down', 'size' => 18])</span>
+                    </summary>
+                    <div class="table-wrap">
+                        <table class="portfolio-table">
+                            <thead><tr><th>{{ __('ui.th_project') }}</th><th>{{ __('ui.th_initiator') }}</th><th>{{ __('ui.th_capex') }}</th><th>{{ __('ui.th_scope') }}</th></tr></thead>
+                            <tbody>
+                                @forelse($ind['projects'] as $p)
+                                <tr>
+                                    <td>{{ $p['title'] }}</td>
+                                    <td>{{ $p['initiator'] ?? '—' }}</td>
+                                    <td>{{ $p['capex'] ?? '—' }}</td>
+                                    <td>{{ $p['scope'] }}</td>
+                                </tr>
+                                @empty
+                                <tr><td colspan="4" class="text-center">—</td></tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
                 @endforeach
             </div>
         </div>

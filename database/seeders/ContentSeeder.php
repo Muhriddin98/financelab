@@ -34,7 +34,7 @@ class ContentSeeder extends Seeder
                     'title' => $p['title'],
                     'description' => $p['description'],
                     'image' => $projectImages[$p['slug']] ?? $p['image'],
-                    'scope' => $p['scope'] ?? [],
+                    'scope' => '<ul>'.implode('', array_map(fn ($s) => '<li>'.e($s).'</li>', $p['scope'] ?? [])).'</ul>',
                     'sort_order' => $i,
                     'is_published' => true,
                 ]

@@ -29,7 +29,6 @@ class ProjectController extends Controller
         $data = $this->validated($request);
         $data['is_published'] = $request->boolean('is_published');
 
-        $data['scope'] = $this->linesToArray($request->input('scope'));
         $data['image'] = $this->upload($request, 'image', 'uploads/projects', null, $request->input('slug'));
 
         Project::create($data);
@@ -47,7 +46,6 @@ class ProjectController extends Controller
         $data = $this->validated($request, $project->id);
         $data['is_published'] = $request->boolean('is_published');
 
-        $data['scope'] = $this->linesToArray($request->input('scope'));
         $data['image'] = $this->upload($request, 'image', 'uploads/projects', $project->image, $project->slug);
 
         $project->update($data);
@@ -71,6 +69,7 @@ class ProjectController extends Controller
             'industry' => ['required', 'max:100'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
+            'scope' => ['required', 'string', 'max:200000'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'is_published' => ['nullable', 'boolean'],
         ]);

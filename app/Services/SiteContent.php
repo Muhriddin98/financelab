@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Article;
+use App\Models\PortfolioItem;
 use App\Models\Project;
 
 /**
@@ -77,6 +78,7 @@ class SiteContent
             'industryImages' => $industryImages,
             'industryDescriptions' => $d['industry_descriptions'],
             'projects' => $this->projects(),
+            'portfolio' => $this->portfolio(),
             'projectImages' => $d['project_images'],
             'insights' => $this->articles(),
             'insightImages' => $d['insight_images'],
@@ -138,6 +140,27 @@ class SiteContent
             'metaTitle' => $d['services'][$i].' | FinanceLab',
             'metaDescription' => $d['service_descriptions'][$i],
         ];
+    }
+
+    /** Portfolio: 5 standart soha + portfolio_items (projects dan ALOHIDA). */
+    public function portfolio(): array
+    {
+        $d = $this->data();
+        $locale = app()->getLocale();
+        $out = [];
+        foreach ($this->data['industries'] as $i => $en) {
+            $items = PortfolioItem::where('is_published', true)
+                ->where('locale', $locale)
+                ->where('industry', $en['anchor'])
+                ->orderByDesc('id')->get();
+            $out[] = [
+                'name' => $d['industries'][$i]['name'],
+                'anchor' => $en['anchor'],
+                'projects' => $items,
+            ];
+        }
+
+        return $out;
     }
 
     public function projects()

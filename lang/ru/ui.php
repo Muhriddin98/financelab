@@ -74,6 +74,15 @@ return [
     'impact_label' => 'Через анализ и знания',
     'download_brief' => 'Скачать описание',
 
+    'featured_title' => 'Избранные проекты',
+    'portfolio_title' => 'Портфель проектов по отраслям',
+    'portfolio_sub' => '30+ проектов в ключевых отраслях.',
+    'th_project' => 'Проект',
+    'th_initiator' => 'Инициатор',
+    'th_capex' => 'Капзатраты (USD)',
+    'th_scope' => 'Состав работ',
+    'projects_badge' => 'проектов',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — описание проекта',
     'js_brief_pending' => 'Описание подготовлено локально и не отправлено.',

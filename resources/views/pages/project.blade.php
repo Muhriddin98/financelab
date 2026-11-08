@@ -6,10 +6,7 @@
     <section class="detail-section">
         <div class="container detail-grid">
             <div class="detail-copy">
-                <p class="eyebrow">{{ __('ui.scope_eyebrow') }}</p>
-                <h2>{{ __('ui.scope_title') }}</h2>
-                <ul>@foreach($project['scope'] as $s)<li>{{ $s }}</li>@endforeach</ul>
-                <p>{{ __('ui.scope_note') }}</p>
+                <div class="article-body">{!! clean($project->scope ?? '', 'article') !!}</div>
                 <a href="{{ ($localePrefix ?? '').'/contact/' }}" class="button">{{ __('ui.discuss_similar') }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
             </div>
             <div class="detail-image">@if(!empty($project['image_url']))<img src="{{ $project['image_url'] }}" alt="" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent">@endif</div>

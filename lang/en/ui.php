@@ -74,6 +74,15 @@ return [
     'impact_label' => 'Through analysis & knowledge',
     'download_brief' => 'Download brief',
 
+    'featured_title' => 'Featured Projects',
+    'portfolio_title' => 'Project Portfolio by Industry',
+    'portfolio_sub' => '30+ projects across key industrial sectors.',
+    'th_project' => 'Project',
+    'th_initiator' => 'Initiator',
+    'th_capex' => 'Capex (USD)',
+    'th_scope' => 'Scope of work',
+    'projects_badge' => 'projects',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — Project brief',
     'js_brief_pending' => 'This brief was prepared locally and has not been sent.',

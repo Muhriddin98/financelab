@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $fillable = [
-        'slug', 'locale', 'industry', 'title', 'description', 'image',
+        'slug', 'locale', 'industry', 'initiator', 'capex', 'title', 'description', 'image',
         'scope', 'sort_order', 'is_published',
     ];
 
     protected $casts = [
-        'scope' => 'array',
         'is_published' => 'boolean',
     ];
 

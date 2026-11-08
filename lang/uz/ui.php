@@ -74,6 +74,15 @@ return [
     'impact_label' => 'Tahlil va bilim orqali',
     'download_brief' => 'Tavsifni yuklash',
 
+    'featured_title' => 'Saralangan loyihalar',
+    'portfolio_title' => 'Sohalar bo‘yicha loyiha portfeli',
+    'portfolio_sub' => 'Asosiy sohalarda 30+ loyiha.',
+    'th_project' => 'Loyiha',
+    'th_initiator' => 'Tashabbuskor',
+    'th_capex' => 'Kapital xarajat (USD)',
+    'th_scope' => 'Ishlar tarkibi',
+    'projects_badge' => 'loyiha',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — loyiha tavsifi',
     'js_brief_pending' => 'Tavsif mahalliy tayyorlandi va yuborilmadi.',
