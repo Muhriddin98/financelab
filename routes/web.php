@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;use App\Http\Controllers\InsightControll
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
 use App\Services\SiteContent;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ $site = function () {
     Route::get('projects/{slug}', [ProjectController::class, 'show']);
     Route::get('insights/{slug}', [InsightController::class, 'show']);
     Route::get('media/{slug}', [MediaController::class, 'show']);
+    Route::get('advisory/{service}', [ServiceController::class, 'show']);
 };
 
 $site();

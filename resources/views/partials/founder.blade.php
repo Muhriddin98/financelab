@@ -1,7 +1,13 @@
 <section class="founder-section">
     <div class="container">
         <div class="founder-grid">
-            <div class="founder-portrait">@include('partials.reference-image', ['name' => 'founder', 'alt' => __('ui.founder_alt')])</div>
+            <div class="founder-portrait">
+                @if(is_file(public_path('images/founder.webp')))
+                <img src="/images/founder.webp?v={{ @filemtime(public_path('images/founder.webp')) ?: 1 }}" alt="{{ __('ui.founder_alt') }}" style="width:100%;height:100%;object-fit:cover">
+                @else
+                @include('partials.reference-image', ['name' => 'founder', 'alt' => __('ui.founder_alt')])
+                @endif
+            </div>
             <div class="founder-bio">
                 <p class="eyebrow">{{ __('ui.founder_eyebrow') }}</p>
                 <h2>{{ $founder['name'] }}</h2>

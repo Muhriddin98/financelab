@@ -70,6 +70,9 @@ class SiteContent
             'services' => $d['services'],
             'serviceIcons' => $d['service_icons'],
             'serviceDescriptions' => $d['service_descriptions'],
+            'serviceGroups' => $d['service_groups'],
+            'serviceSlugs' => $this->data['service_slugs'],
+            'serviceBodies' => $d['service_bodies'],
             'industries' => $d['industries'],
             'industryImages' => $industryImages,
             'industryDescriptions' => $d['industry_descriptions'],
@@ -107,6 +110,33 @@ class SiteContent
             'metaDescription' => $pages[$section]['intro'],
             'analytical' => $this->analytical(),
             'mediaArticles' => $this->mediaArticles(),
+        ];
+    }
+
+    public function serviceSlugs(): array
+    {
+        return $this->data['service_slugs'];
+    }
+
+    /** Batafsil xizmat sahifasi: slug bo'yicha (3 tilda bir xil EN slug). */
+    public function service(string $slug): ?array
+    {
+        $i = array_search($slug, $this->data['service_slugs'], true);
+        if ($i === false) {
+            return null;
+        }
+        $d = $this->data();
+
+        return [
+            'index' => $i,
+            'slug' => $slug,
+            'name' => $d['services'][$i],
+            'description' => $d['service_descriptions'][$i],
+            'body' => $d['service_bodies'][$i],
+            'icon' => $d['service_icons'][$i],
+            'group' => $d['service_groups'][$i < 4 ? 0 : 1],
+            'metaTitle' => $d['services'][$i].' | FinanceLab',
+            'metaDescription' => $d['service_descriptions'][$i],
         ];
     }
 

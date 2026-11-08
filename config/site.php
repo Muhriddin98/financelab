@@ -36,29 +36,72 @@ return [
     'pillars' => [
         ['slug' => 'advisory', 'number' => '01', 'name' => 'Advisory', 'verb' => 'We solve.', 'color' => 'blue', 'image' => '/images/advisory.webp', 'description' => 'Financial modelling, feasibility studies and analytical solutions for informed decisions and sustainable growth.'],
         ['slug' => 'academy', 'number' => '02', 'name' => 'Academy', 'verb' => 'We teach.', 'color' => 'gold', 'image' => '/images/academy.webp', 'description' => 'Practical finance education built on real project experience to develop the next generation of finance professionals.'],
-        ['slug' => 'media', 'number' => '03', 'name' => 'Media', 'verb' => 'We explain.', 'color' => 'green', 'image' => '/images/media.webp', 'description' => 'Financial intelligence through analysis, data and visual materials that make complex topics simple and practical.'],
+        ['slug' => 'media', 'number' => '03', 'name' => 'Media', 'verb' => 'We explain.', 'color' => 'green', 'image' => '/images/media.webp', 'description' => 'Clear explanations, insightful analysis and evidence-based research on finance, investment and industry economics.'],
     ],
 
     'services' => [
-        'Financial Modelling',
-        'Feasibility Studies (TEO)',
-        'Investment Analysis',
-        'Business Cases',
-        'Financial Diagnostics',
-        'Financial Analysis & Visualization',
+        'Financial Modeling & Investment Analysis',
+        'Feasibility Studies',
+        'Independent Financial & Economic Review',
+        'Business Diagnostics & Financial Analysis',
+        'Data Analytics & Visualization',
+        'Corporate Website Development & Maintenance',
     ],
 
     'service_icons' => [
-        'chart-no-axes-combined', 'file-text', 'coins', 'presentation', 'scan-line', 'chart-pie',
+        'chart-no-axes-combined', 'file-text', 'scan-line', 'chart-pie', 'database', 'monitor',
     ],
 
     'service_descriptions' => [
-        'Integrated financial models with transparent assumptions, operating forecasts, cash flow analysis and scenario testing.',
-        'Structured feasibility assessment connecting market, technical and financial assumptions for an investment decision.',
-        'Project economics, investment returns, funding requirements and sensitivities that clarify the decision.',
-        'A clear commercial and financial rationale for a new project, expansion or strategic alternative.',
-        'A structured review of performance, financial health, cash conversion and the drivers of value.',
-        'Decision-focused reporting and visual analysis that turn complex financial information into a coherent narrative.',
+        'We develop integrated financial models to evaluate project economics, investment returns, financing requirements and financial risks.',
+        'We develop financial and economic feasibility assessments integrating technical, commercial and investment assumptions to evaluate project viability.',
+        'We independently assess feasibility studies, financial models and investment assumptions to identify weaknesses, inconsistencies and material financial risks.',
+        'We assess business performance, financial health, cost structures and cash flows to identify key profitability drivers and opportunities for improvement.',
+        'We transform raw business data into structured, actionable insights through data processing, analysis and interactive visualization (Python, SQL, Power BI).',
+        'We design, develop and maintain professional corporate websites that strengthen digital presence, communicate business value and engage stakeholders.',
+    ],
+
+    'service_groups' => [
+        ['title' => 'Core Financial Advisory', 'description' => 'Financial and investment advisory services for informed business decisions.'],
+        ['title' => 'Data & Digital Solutions', 'description' => 'Data analytics and digital solutions to turn information into business value.'],
+    ],
+
+    // Batafsil sahifa slug lari (3 tilda bir xil EN).
+    'service_slugs' => [
+        'financial-modeling-investment-analysis',
+        'feasibility-studies',
+        'independent-financial-review',
+        'business-diagnostics-analysis',
+        'data-analytics-visualization',
+        'website-development-maintenance',
+    ],
+
+    // Har xizmat uchun batafsil matn (Learn more sahifasi).
+    'service_bodies' => [
+        [
+            'We build integrated financial models that link operating assumptions with financial outcomes: revenue drivers, costs, capital expenditure, working capital, debt and equity. Every key assumption is documented and traceable, so decision-makers can see exactly what drives the result.',
+            'Models are built for decisions, not for decoration. Scenario and sensitivity analysis show how returns change when volumes, prices, costs or timelines move — helping sponsors, lenders and investors agree on a realistic base case before money is committed.',
+        ],
+        [
+            'A feasibility study connects the market opportunity with technical reality and financial capacity. We assess demand, pricing, production or service volumes, investment requirements and operating costs in one consistent framework.',
+            'The result is an investment-grade document: clear conclusions on viability, funding needs, payback and risk factors — suitable for shareholders, banks and development institutions.',
+        ],
+        [
+            'An independent review tests whether a model, feasibility study or investment proposal holds together. We check the logic of assumptions, the consistency of calculations and the realism of forecasts against market and project evidence.',
+            'You receive a structured opinion: what is sound, what is fragile and what must change — before the decision, not after.',
+        ],
+        [
+            'Diagnostics start from the numbers you already have: financial statements, management reports and operating data. We examine profitability, cost structure, cash conversion and financial health to find where value is created — and where it leaks.',
+            'Findings are translated into priorities: which drivers to manage, which costs to address and which actions improve cash flow and returns first.',
+        ],
+        [
+            'Raw business data becomes useful only when it is structured and visible. We collect, clean and model data from spreadsheets, accounting systems and other sources, then build interactive dashboards and reports.',
+            'Using Python, SQL and Power BI, we turn recurring manual reporting into live views of performance — so managers see problems early and act on evidence, not intuition.',
+        ],
+        [
+            'A corporate website is often the first due-diligence step a partner, client or lender takes. We design and build fast, clear and professional websites that explain what the business does and why it can be trusted.',
+            'After launch we keep the site maintained: content updates, technical health and small improvements — so the digital presence stays current without burdening your team.',
+        ],
     ],
 
     'industries' => [
@@ -70,11 +113,11 @@ return [
     ],
 
     'industry_descriptions' => [
-        'Project economics, production assumptions and capital planning.',
-        'Localization, assembly economics and production ramp-up.',
-        'Capacity, unit economics and working capital requirements.',
-        'Capital requirements, operating scenarios and long-term returns.',
-        'Long-lived assets, demand scenarios and financing structures.',
+        'Mining, mineral processing and metallurgical investments — from project feasibility to production economics and financial evaluation.',
+        'Vehicle manufacturing, localization and automotive components — investment feasibility, production economics and financial performance.',
+        'Industrial production and manufacturing investments — capacity planning, cost structures, profitability and project viability.',
+        'Energy generation and infrastructure investments — capital requirements, operating economics and long-term financial sustainability.',
+        'Infrastructure development and capital-intensive assets — investment appraisal, financing requirements and long-term project economics.',
     ],
 
     'projects' => [
@@ -165,7 +208,7 @@ return [
     'pages' => [
         'advisory' => [
             'label' => 'FinanceLab Advisory', 'title' => 'Rigorous analysis. Better decisions.',
-            'intro' => 'Financial modelling, feasibility studies and investment analysis across the full project lifecycle.',
+            'intro' => 'Financial modeling, feasibility studies, independent project reviews and business analysis — supporting informed investment and management decisions.',
             'image' => '/images/advisory.webp',
             'body' => [
                 'An investment decision is only as strong as the analysis behind it. We connect commercial, technical and financial assumptions in a clear, decision-ready view.',

@@ -24,11 +24,19 @@ $showCta = !in_array($section, ['contact', 'privacy', 'terms']);
     @if($section === 'advisory')
     <section class="detail-section">
         <div class="container">
-            <div class="service-details">
-                @foreach($services as $i => $s)
-                <article class="service-detail" id="service-{{ $i }}"><p class="eyebrow">0{{ $i + 1 }}</p><h3>{{ $s }}</h3><p>{{ $serviceDescriptions[$i] }}</p></article>
+            @foreach($serviceGroups as $gi => $group)
+            @php $items = $gi === 0 ? range(0, 3) : range(4, 5); @endphp
+            <div class="service-group-head"><h2>{{ $group['title'] }}</h2><p>{{ $group['description'] }}</p></div>
+            <div class="service-cards">
+                @foreach($items as $i)
+                <article class="service-card">
+                    <div class="service-card-icon">@include('partials.lucide', ['name' => $serviceIcons[$i], 'size' => 30])</div>
+                    <div class="service-card-num">0{{ $i + 1 }}</div>
+                    <div class="service-card-body"><h3>{{ $services[$i] }}</h3><p>{{ $serviceDescriptions[$i] }}</p><a class="text-link" href="{{ ($localePrefix ?? '').'/advisory/'.$serviceSlugs[$i].'/' }}">{{ $actions['learn'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 16])</a></div>
+                </article>
                 @endforeach
             </div>
+            @endforeach
             <div id="industry-experience" class="section">
                 <h2>{{ __('ui.ind_h2a') }}<br>{{ __('ui.ind_h2b') }}</h2>
                 <div class="industry-details">

@@ -41,21 +41,53 @@ return [
     ],
 
     'services' => [
-        'Moliyaviy modellashtirish',
-        'Texnik-iqtisodiy asoslash (TIA)',
-        'Investitsion tahlil',
-        'Biznes-keyslar',
-        'Moliyaviy diagnostika',
-        'Moliyaviy tahlil va vizuallashtirish',
+        'Moliyaviy modellashtirish va investitsion tahlil',
+        'Texnik-iqtisodiy asoslash (FS / TIA)',
+        'Mustaqil moliyaviy-iqtisodiy ekspertiza',
+        'Biznes-diagnostika va moliyaviy tahlil',
+        'Maʼlumotlar tahlili va vizuallashtirish',
+        'Korporativ saytlarni ishlab chiqish va qo‘llab-quvvatlash',
     ],
 
     'service_descriptions' => [
-        'Shaffof farazlar, operatsion prognozlar, pul oqimi tahlili va ssenariy testiga ega kompleks moliyaviy modellar.',
-        'Investitsion qaror uchun bozor, texnik va moliyaviy farazlarni bogʻlovchi tizimli asoslilik bahosi.',
-        'Loyiha iqtisodiyoti, investitsiya qaytimi, moliyalashtirish ehtiyoji va qarorni oydinlashtiruvchi sezuvchanlik.',
-        'Yangi loyiha, kengayish yoki strategik muqobil uchun aniq tijorat va moliyaviy asos.',
-        'Natijalar, moliyaviy holat, pul aylanishi va qiymat omillarining tizimli sharhi.',
-        'Murakkab moliyaviy axborotni izchil hikoyaga aylantiruvchi qarorlar uchun hisobot va vizual tahlil.',
+        'Loyiha iqtisodiyoti, investitsiya qaytimi, moliyalashtirish ehtiyoji va moliyaviy risklarni baholash uchun kompleks moliyaviy modellarni ishlab chiqamiz.',
+        'Loyiha hayotiyligini baholash uchun texnik, tijorat va investitsion farazlarni birlashtirgan moliyaviy va iqtisodiy asoslashlarni ishlab chiqamiz.',
+        'TIA, moliyaviy modellar va investitsion farazlarni mustaqil baholab, zaif joylar, nomuvofiqliklar va muhim moliyaviy risklarni aniqlaymiz.',
+        'Biznes natijalari, moliyaviy holat, xarajatlar tuzilmasi va pul oqimlarini baholab, rentabellikning asosiy omillari va yaxshilash imkoniyatlarini aniqlaymiz.',
+        'Xom biznes maʼlumotlarini qayta ishlash, tahlil va interaktiv vizuallashtirish (Python, SQL, Power BI) orqali tizimli, amaliy xulosalarga aylantiramiz.',
+        'Raqamli ishtirokni kuchaytiruvchi, biznes qiymatini yetkazuvchi va manfaatdor tomonlarni jalb qiluvchi professional korporativ saytlarni loyihalab, ishlab chiqib va qo‘llab-quvvatlaymiz.',
+    ],
+
+    'service_groups' => [
+        ['title' => 'Asosiy moliyaviy konsalting', 'description' => 'Oqilona biznes qarorlar uchun moliyaviy va investitsion konsalting xizmatlari.'],
+        ['title' => 'Maʼlumotlar va raqamli yechimlar', 'description' => 'Axborotni biznes qiymatiga aylantiruvchi maʼlumotlar tahlili va raqamli yechimlar.'],
+    ],
+
+    'service_bodies' => [
+        [
+            'Biz operatsion farazlarni moliyaviy natijalar bilan bog‘lovchi kompleks moliyaviy modellarni quramiz: daromad omillari, xarajatlar, kapital qo‘yilmalar, aylanma mablag‘, qarz va o‘z kapitali. Har bir muhim faraz hujjatlashtirilgan va kuzatiladigan — qaror qabul qiluvchilar natijani nima shakllantirishini aniq ko‘radi.',
+            'Modellar bezak uchun emas, qarorlar uchun quriladi. Ssenariy va sezuvchanlik tahlili hajmlar, narxlar, xarajatlar yoki muddatlar o‘zgarganda qaytim qanday o‘zgarishini ko‘rsatadi — homiylar, kreditorlar va investorlarga mablag‘ kiritishdan oldin realistik baza ssenariyda kelishishga yordam beradi.',
+        ],
+        [
+            'TIA bozor imkoniyatini texnik haqiqat va moliyaviy imkoniyat bilan bog‘laydi. Talab, narxlar, ishlab chiqarish yoki xizmat hajmlari, investitsion ehtiyojlar va operatsion xarajatlarni yagona izchil tuzilmada baholaymiz.',
+            'Natija — investitsion darajadagi hujjat: hayotiylik, moliyalashtirish ehtiyojlari, qoplanish va risk omillari bo‘yicha aniq xulosalar — aksiyadorlar, banklar va rivojlanish institutlari uchun mos.',
+        ],
+        [
+            'Mustaqil ekspertiza model, TIA yoki investitsion taklifning yaxlitligini tekshiradi. Farazlar mantiqi, hisob-kitoblar izchilligi va prognozlar realligini bozor va loyiha maʼlumotlariga solishtirib tekshiramiz.',
+            'Tizimli xulosa olasiz: nima ishonchli, nima mo‘rt va qarorgacha nimani o‘zgartirish kerak — qarordan keyin emas.',
+        ],
+        [
+            'Diagnostika sizda bor raqamlardan boshlanadi: moliyaviy hisobotlar, boshqaruv hisobotlari va operatsion maʼlumotlar. Rentabellik, xarajatlar tuzilmasi, pul aylanishi va moliyaviy holatni o‘rganib, qiymat qayerda yaratilishi — va qayerda sizib chiqishini topamiz.',
+            'Xulosalar ustuvorliklarga aylanadi: qaysi omillarni boshqarish, qaysi xarajatlarni hal qilish va pul oqimi hamda qaytimni birinchi navbatda nima yaxshilashi.',
+        ],
+        [
+            'Xom biznes maʼlumotlari faqat tuzilmalangan va ko‘rinarli bo‘lganda foydali bo‘ladi. Jadvallar, hisob tizimlari va boshqa manbalardan maʼlumotlarni yig‘ib, tozalab, modellashtirib, interaktiv doshboard va hisobotlar quramiz.',
+            'Python, SQL va Power BI yordamida takrorlanuvchi qo‘lda hisobotlarni natijalarning jonli ko‘rinishiga aylantiramiz — rahbarlar muammolarni erta ko‘radi va taxmin bilan emas, dalillar bilan harakat qiladi.',
+        ],
+        [
+            'Korporativ sayt ko‘pincha hamkor, mijoz yoki kreditorning birinchi due diligence qadami bo‘ladi. Biznes nima bilan shug‘ullanishi va nima uchun ishonchli ekanini tushuntiruvchi tez, tushunarli va professional saytlarni loyihalab yaratamiz.',
+            'Ishga tushgach saytni qo‘llab-quvvatlaymiz: kontent yangilash, texnik holat va kichik yaxshilashlar — raqamli ishtirok jamoangizga yuk bo‘lmasdan dolzarb qoladi.',
+        ],
     ],
 
     'industries' => [

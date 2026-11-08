@@ -29,6 +29,15 @@ class SitemapController extends Controller
                 $urls[] = ['loc' => $prefix.'/'.$section.'/', 'priority' => '0.8', 'changefreq' => 'weekly', 'lastmod' => $today];
             }
 
+            foreach ($content->serviceSlugs() as $slug) {
+                $urls[] = [
+                    'loc' => $prefix.'/advisory/'.$slug.'/',
+                    'priority' => '0.7',
+                    'changefreq' => 'monthly',
+                    'lastmod' => $today,
+                ];
+            }
+
             $articles = Article::where('is_published', true)->where('locale', $locale)->get();
             foreach ($articles as $a) {
                 $type = $a->isMedia() ? 'media' : 'insights';

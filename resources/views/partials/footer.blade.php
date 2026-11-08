@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-main">
             <div>
-                <a href="{{ ($localePrefix ?? '').'/' }}" class="logo" aria-label="{{ __('ui.logo_home') }}"><span class="logo-symbol"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
+                <a href="{{ ($localePrefix ?? '').'/' }}" class="logo" aria-label="{{ __('ui.logo_home') }}"><span class="logo"><img src="/images/logo.webp" alt="" width="75" height="75"></span><span>Finance<span class="brand-blue">Lab</span></span></a>
                 <p>{{ $siteTagline }}</p>
             </div>
             <nav aria-label="Footer navigation">
