@@ -36,6 +36,13 @@
     // Contact form: POST to server, or downloadable brief (client-side)
     var form = document.getElementById('contact-form');
     if (form) {
+        var fileInput = form.querySelector('input[name="attachment"]');
+        if (fileInput) {
+            fileInput.addEventListener('change', function () {
+                var label = form.querySelector('.file-name');
+                if (label) label.textContent = fileInput.files.length ? fileInput.files[0].name : (label.getAttribute('data-none') || '');
+            });
+        }
         var status = document.getElementById('form-status');
         var sendBtn = form.querySelector('button[value="send"]');
         form.addEventListener('submit', function (event) {
@@ -55,7 +62,6 @@
                 a.download = 'FinanceLab-project-brief.txt';
                 a.click();
                 setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-                status.textContent = form.getAttribute('data-success') || 'Sent.';
                 return;
             }
             var btnText = sendBtn ? sendBtn.textContent : '';

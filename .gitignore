@@ -19,3 +19,7 @@ yarn-error.log
 /.vscode
 /public/financelab_img
 /public/uploads
+
+# Dizayn namunalari (vaqtinchalik)
+/*.png
+!/public/**/*.png

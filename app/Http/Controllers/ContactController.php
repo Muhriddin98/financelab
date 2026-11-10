@@ -21,7 +21,19 @@ class ContactController extends Controller
             'organization' => ['nullable', 'string', 'max:200'],
             'interest' => ['required', 'string', 'in:'.implode(',', $options)],
             'message' => ['required', 'string', 'min:20', 'max:5000'],
+            'attachment' => ['nullable', 'file', 'max:5120', 'mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt,csv,zip,jpg,jpeg,png,webp'],
         ]);
+
+        if ($request->hasFile('attachment')) {
+            $file = $request->file('attachment');
+            $name = time().'-'.preg_replace('/[^a-z0-9.\-_]+/i', '_', $file->getClientOriginalName());
+            $target = public_path('uploads/contact');
+            if (! is_dir($target)) {
+                mkdir($target, 0755, true);
+            }
+            $file->move($target, $name);
+            $data['attachment'] = 'uploads/contact/'.$name;
+        }
 
         $contact = ContactMessage::create($data + [
             'locale' => app()->getLocale(),

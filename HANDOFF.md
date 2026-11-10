@@ -35,7 +35,7 @@
 - `route:cache` fix: `/ru`, `/uz` guruhlarga `name('ru.')` / `name('uz.')` (bir xil `home` nomi 3 marta takrorlanib optimize yiqilgandi; frontend nom bilan murojaat qilmaydi).
 - SEO: global `noindex` O'CHIRILGAN (faqat 404 da bor), har sahifada `canonical` (slashli) + `hreflang` (en/ru/uz/x-default), dinamik `sitemap.xml` route (`SitemapController` — 3 til × bosh+9 section+details, `lastmod`), `robots.txt` da Sitemap + `/admin/`, `/adminer.php`, `/telescope/` Disallow.
 - `public/adminer.php` — user qo'ygan (DB boshqaruv, git da).
-- Kontakt forma: POST `/contact|/ru/contact|/uz/contact` → `ContactController@store` → validatsiya → `contact_messages` DB → Gmail SMTP (`financelab.messages@gmail.com`, App Password) → `sherovatov92@gmail.com` ga. Tugma "Send message" (3 til). Xat HTML shablon (`emails.contact`, inline CSS). `replyTo` — `new Address()` shart (assoc massiv ishlamaydi!). Privacy matni server-yuborishga moslangan (3 til).
+- Kontakt forma: POST `/contact|/ru/contact|/uz/contact` → `ContactController@store` → validatsiya (+fayl 5MB, `uploads/contact`) → `contact_messages` DB → Gmail SMTP (`financelab.messages@gmail.com`, App Password) → `sherovatov92@gmail.com` ga (fayl biriktirilgan). Contact sahifa: telefon/joylashuv qatorlari, Telegram `t.me/Luchnik` (faqat shu sahifada). Tugma "Send message" (3 til). Xat HTML shablon (`emails.contact`, inline CSS). `replyTo` — `new Address()` shart (assoc massiv ishlamaydi!). Privacy matni server-yuborishga moslangan (3 til).
 
 ## 4. Rasmlar (2026-10-09 holati)
 - Manba: `public/financelab_img/` (17 fayl, git da YO'Q!) → `public/images/*.webp` (max 1600px, q82).

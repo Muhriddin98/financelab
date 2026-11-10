@@ -83,6 +83,14 @@ return [
     'th_scope' => 'Scope of work',
     'projects_badge' => 'projects',
 
+    'c_email' => 'Email',
+    'c_phone' => 'Phone',
+    'c_location' => 'Location',
+    'c_location_value' => 'Tashkent, Uzbekistan',
+    'c_connect' => 'Connect',
+    'file_choose' => 'Choose file',
+    'file_none' => 'No file chosen',
+    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — max 5 MB',
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — Project brief',
     'js_brief_pending' => 'This brief was prepared locally and has not been sent.',

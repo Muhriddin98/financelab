@@ -183,6 +183,7 @@ return [
             'name' => 'Ismingiz', 'email' => 'E-pochta manzili',
             'organization' => 'Tashkilot (ixtiyoriy)', 'interest' => 'Yoʻnalish',
             'message' => 'Loyiha yoki mavzu',
+            'file' => 'Fayl biriktirish (ixtiyoriy)',
         ],
         'button' => 'Xabar yuborish',
         'note' => 'Formani toʻldiring va tugmani bosing — xabaringiz bevosita FinanceLab ga yuboriladi.',

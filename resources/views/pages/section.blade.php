@@ -197,12 +197,22 @@
                     <aside>
                         <h2>{{ $contactCopy['heading'] }}</h2>
                         @foreach($contactCopy['paragraphs'] as $t)<p>{{ $t }}</p>@endforeach
-                        <a class="contact-email"
-                           href="mailto:{{ $siteContact['email'] }}">{{ $siteContact['email'] }}</a>
-                        <div class="social-links">@foreach($siteContact['socials'] as $s)<a href="{{ $s['href'] }}"
-                                                                                            target="_blank"
-                                                                                            rel="noopener noreferrer">{{ $s['label'] }}</a>@endforeach
+                        <div class="contact-lines">
+                            <div class="contact-line">
+                                <span class="line-icon">@include('partials.lucide', ['name' => 'mail', 'size' => 20])</span>
+                                <span class="line-body"><small>{{ __('ui.c_email') }}</small><a class="line-value contact-email" href="mailto:{{ $siteContact['email'] }}">{{ $siteContact['email'] }}</a></span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="line-icon">@include('partials.lucide', ['name' => 'phone', 'size' => 20])</span>
+                                <span class="line-body"><small>{{ __('ui.c_phone') }}</small><a class="line-value" href="tel:{{ preg_replace('/\D+/', '', $siteContact['phone']) }}">{{ $siteContact['phone'] }}</a></span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="line-icon">@include('partials.lucide', ['name' => 'map-pin', 'size' => 20])</span>
+                                <span class="line-body"><small>{{ __('ui.c_location') }}</small><span class="line-value" style="color:var(--ink)">{{ __('ui.c_location_value') }}</span></span>
+                            </div>
                         </div>
+                        <h3 class="connect-head">{{ __('ui.c_connect') }}</h3>
+                        <div class="social-links">@foreach($siteContact['socials'] as $s)<a href="{{ $s['label'] === 'Telegram' ? 'https://t.me/Luchnik' : $s['href'] }}" target="_blank" rel="noopener noreferrer">@include('partials.lucide', ['name' => $s['label'] === 'LinkedIn' ? 'linkedin' : 'send', 'size' => 18])<span>{{ $s['label'] }}</span></a>@endforeach</div>
                     </aside>
                     @include('partials.contact-form')
                 </div>

@@ -263,6 +263,7 @@ return [
 
     'contact' => [
         'email' => 'sherovatov92@gmail.com',
+        'phone' => '+998 91 226 12 42',
         'socials' => [
             ['label' => 'LinkedIn', 'href' => 'https://www.linkedin.com/in/laziz-sherovatov'],
             ['label' => 'Telegram', 'href' => 'https://t.me/financelab_uz'],
@@ -279,6 +280,7 @@ return [
             'name' => 'Your name', 'email' => 'Email address',
             'organization' => 'Organization (optional)', 'interest' => 'Area of interest',
             'message' => 'Project or topic',
+            'file' => 'Attach a file (optional)',
         ],
         'button' => 'Send message',
         'note' => 'Fill in the form and press the button — your message will be sent directly to FinanceLab.',

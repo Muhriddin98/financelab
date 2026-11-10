@@ -18,6 +18,7 @@
                 <dt class="col-sm-3">Til</dt><dd class="col-sm-9">{{ strtoupper($message->locale) }}</dd>
                 <dt class="col-sm-3">IP</dt><dd class="col-sm-9">{{ $message->ip ?? '—' }}</dd>
                 <dt class="col-sm-3">Xabar</dt><dd class="col-sm-9">{{ $message->message }}</dd>
+                <dt class="col-sm-3">Fayl</dt><dd class="col-sm-9">@if($message->attachment)<a href="/{{ $message->attachment }}" target="_blank">{{ basename($message->attachment) }}</a>@else — @endif</dd>
             </dl>
         </div>
         <div class="card-footer">

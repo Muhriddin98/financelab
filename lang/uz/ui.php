@@ -83,6 +83,15 @@ return [
     'th_scope' => 'Ishlar tarkibi',
     'projects_badge' => 'loyiha',
 
+    'c_email' => 'El. pochta',
+    'c_phone' => 'Telefon',
+    'c_location' => 'Manzil',
+    'c_location_value' => 'Toshkent, O‘zbekiston',
+    'c_connect' => 'Bog‘lanish',
+    'file_choose' => 'Fayl tanlash',
+    'file_none' => 'Fayl tanlanmagan',
+    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — maks. 5 MB',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — loyiha tavsifi',
     'js_brief_pending' => 'Tavsif mahalliy tayyorlandi va yuborilmadi.',

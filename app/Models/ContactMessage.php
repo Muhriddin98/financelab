@@ -8,7 +8,7 @@ class ContactMessage extends Model
 {
     protected $fillable = [
         'name', 'email', 'organization', 'interest',
-        'message', 'locale', 'ip', 'is_read',
+        'message', 'attachment', 'locale', 'ip', 'is_read',
     ];
 
     protected $casts = ['is_read' => 'boolean'];

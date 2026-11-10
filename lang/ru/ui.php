@@ -83,6 +83,15 @@ return [
     'th_scope' => 'Состав работ',
     'projects_badge' => 'проектов',
 
+    'c_email' => 'Эл. почта',
+    'c_phone' => 'Телефон',
+    'c_location' => 'Локация',
+    'c_location_value' => 'Ташкент, Узбекистан',
+    'c_connect' => 'Связь',
+    'file_choose' => 'Выбрать файл',
+    'file_none' => 'Файл не выбран',
+    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — макс. 5 МБ',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — описание проекта',
     'js_brief_pending' => 'Описание подготовлено локально и не отправлено.',
