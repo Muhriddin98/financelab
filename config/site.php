@@ -28,7 +28,7 @@ return [
         'founder' => [
             'name' => 'Laziz Sherovatov',
             'role' => 'Financial Modeling & Investment Analysis Specialist',
-            'bio' => 'With extensive experience in financial-economic analysis, feasibility studies and investment projects, Laziz founded FinanceLab to turn real-world expertise into practical solutions, professional education and accessible financial insights.',
+            'bio' => 'Laziz Sherovatov is a financial modeling and investment analysis specialist with over eight years of professional experience in financial and economic evaluation, feasibility studies and investment project analysis. Having worked across mining, metallurgy, automotive and manufacturing projects, he combines methodological knowledge with practical understanding of project economics, investment risks and financial decision-making.',
         ],
         'footer' => ['copyright' => '© 2026 FinanceLab. All rights reserved.'],
     ],
@@ -227,16 +227,16 @@ return [
         ],
         'media' => [
             'label' => 'FinanceLab Media', 'title' => 'Complex topics. Clear perspectives.',
-            'intro' => 'Analysis, data and visual storytelling that make financial intelligence accessible and useful.',
+            'intro' => 'Clear explanations and practical perspectives on financial modeling, investment analysis, feasibility studies and the economics behind business and investment decisions.',
             'image' => '/images/media.webp',
             'body' => [
-                'FinanceLab Media connects financial analysis with a clear editorial point of view. We explore how industries operate, how investments are evaluated and what financial information can tell us.',
-                'Explore practical notes on modelling, industry economics and visual finance. Our aim is to make the assumptions visible and the reasoning easy to follow.',
+                'FinanceLab Media makes financial and investment concepts easier to understand and apply. We explore how financial models work, how projects are evaluated and how economic assumptions influence investment and business decisions.',
+                'Through practical articles, analytical explanations and visual storytelling, we connect financial theory with real-world applications — making complex topics clear, relevant and useful.',
             ],
         ],
         'about' => [
             'label' => 'About FinanceLab', 'title' => 'Expertise, shared with purpose.',
-            'intro' => 'One brand connects financial advisory, professional education and analytical media.',
+            'intro' => 'FinanceLab brings together financial and investment advisory, practical education and evidence-based analytical content — built on real-world project experience.',
             'image' => '/images/advisory.webp',
         ],
         'projects' => [
@@ -245,7 +245,7 @@ return [
         ],
         'insights' => [
             'label' => 'FinanceLab Insights', 'title' => 'Analysis. Ideas. Perspectives.',
-            'intro' => 'Explore the assumptions, methods and industry questions behind better financial decisions.',
+            'intro' => 'Evidence-based research and in-depth analysis of industries, investment projects and economic developments — examining the drivers, risks and implications behind investment decisions.',
         ],
         'contact' => [
             'label' => 'Contact FinanceLab', 'title' => 'Let’s build better decisions.',

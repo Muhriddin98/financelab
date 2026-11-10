@@ -11,7 +11,6 @@
                     <a href="{{ ($localePrefix ?? '').'/contact/' }}" class="button secondary">{{ $actions['discuss'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 17])</a>
                 </div>
             </div>
-            <div class="hero-visual" aria-hidden="true"></div>
         </div>
         <div class="hero-bottom">
             <div class="metrics">
