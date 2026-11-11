@@ -5,7 +5,7 @@
 @endphp
 
 @section('content')
-    <main id="main">
+    <main id="main" class="page-{{ $section }}">
         @include('partials.page-heading', ['label' => $page['label'], 'title' => $page['title'], 'intro' => $page['intro']])
 
         @if(!empty($page['body']))
@@ -61,14 +61,44 @@
         @endif
 
         @if($section === 'about')
-            @include('partials.pillars')
-            @include('partials.founder')
-            <section class="detail-section">
-                <div class="container">
-                    <div class="detail-copy"><h2>{{ $siteTagline }}</h2>
-                        <p>{{ __('ui.about_note') }}</p></div>
+            <section class="detail-section about-who">
+                <div class="container detail-grid">
+                    <div class="detail-copy">
+                        <p class="eyebrow">{{ $aboutPage['who']['label'] }}</p>
+                        <h2>{{ $aboutPage['who']['title'] }}</h2>
+                        @foreach($aboutPage['who']['paragraphs'] as $t)<p>{{ $t }}</p>@endforeach
+                    </div>
+                    <div class="detail-image about-photo">
+                        @if(is_file(public_path('images/about.webp')))
+                        <img src="/images/about.webp?v={{ @filemtime(public_path('images/about.webp')) ?: 1 }}" alt="FinanceLab" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;color:transparent">
+                        @else
+                        <img src="/images/media.webp" alt="FinanceLab" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;color:transparent">
+                        @endif
+                    </div>
                 </div>
             </section>
+
+            <section class="detail-section about-approach">
+                <div class="container detail-grid">
+                    <div class="detail-copy">
+                        <p class="eyebrow">{{ $aboutPage['approach']['label'] }}</p>
+                        <h2>{{ $aboutPage['approach']['title'] }}</h2>
+                        @foreach($aboutPage['approach']['paragraphs'] as $t)<p>{{ $t }}</p>@endforeach
+                    </div>
+                    <div class="approach-cards">
+                        @foreach($aboutPage['approach']['cards'] as $card)
+                        <article class="approach-card">
+                            <span class="approach-icon">@include('partials.lucide', ['name' => $card['icon'], 'size' => 30])</span>
+                            <h3>{{ $card['title'] }}</h3>
+                            <p>{{ $card['text'] }}</p>
+                        </article>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+
+            @include('partials.pillars', ['label' => __('ui.three_directions'), 'description' => __('ui.three_directions_desc')])
+            @include('partials.founder')
         @endif
 
         @if($section === 'projects')

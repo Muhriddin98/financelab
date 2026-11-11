@@ -17,4 +17,5 @@ return [
     'infrastructure' => ['label' => 'Soha: Infratuzilma', 'path' => 'images/infrastructure.webp', 'hint' => 'Soha kartasi.'],
     'mountains' => ['label' => 'Fon: Tog‘lar', 'path' => 'images/mountains.webp', 'hint' => 'CTA banner + sohalar foni.', 'max' => 1920, 'quality' => 88],
     'founder' => ['label' => 'Asoschi portreti', 'path' => 'images/founder.webp', 'hint' => 'About sahifasi. Yuklansa sprit o‘rniga chiqadi.', 'max' => 800, 'quality' => 88],
+    'about' => ['label' => 'About sahifasi fotosurati', 'path' => 'images/about.webp', 'hint' => 'About — “Who we are” bloki.', 'max' => 1600, 'quality' => 86],
 ];

@@ -28,9 +28,37 @@ return [
         'founder' => [
             'name' => 'Laziz Sherovatov',
             'role' => 'Financial Modeling & Investment Analysis Specialist',
-            'bio' => 'Laziz Sherovatov is a financial modeling and investment analysis specialist with over eight years of professional experience in financial and economic evaluation, feasibility studies and investment project analysis. Having worked across mining, metallurgy, automotive and manufacturing projects, he combines methodological knowledge with practical understanding of project economics, investment risks and financial decision-making.',
+            'bio' => [
+                'Laziz Sherovatov is a financial modeling and investment analysis specialist with over eight years of professional experience in financial and economic evaluation, feasibility studies and investment project analysis.',
+                'Having worked across mining, metallurgy, automotive and manufacturing projects, he founded FinanceLab to bring practical expertise into advisory services, professional education and evidence-based analytical content.',
+            ],
         ],
         'footer' => ['copyright' => '© 2026 FinanceLab. All rights reserved.'],
+    ],
+
+    'about_page' => [
+        'who' => [
+            'label' => 'Who we are',
+            'title' => 'Built on experience. Driven by analysis.',
+            'paragraphs' => [
+                'FinanceLab is an Uzbekistan-based financial and investment advisory brand founded by Laziz Sherovatov.',
+                'Built on extensive experience in financial modeling, investment analysis, feasibility studies and independent financial-economic reviews, FinanceLab focuses on turning complex financial and economic information into clear, decision-ready insights.',
+                'With practical experience across mining, metallurgy, automotive and manufacturing projects, we combine analytical rigor with real-industry understanding to support investment and business decisions.',
+            ],
+        ],
+        'approach' => [
+            'label' => 'Our approach',
+            'title' => 'From complexity to clarity.',
+            'paragraphs' => [
+                'Good financial decisions require more than calculations. They depend on sound assumptions, a clear understanding of business and industry economics, and the ability to recognize risks, uncertainties and alternative outcomes.',
+                'Our approach combines rigorous financial analysis with practical project experience. We examine how technical, commercial and financial assumptions interact, evaluate their implications and translate the results into meaningful conclusions.',
+            ],
+            'cards' => [
+                ['icon' => 'chart-no-axes-column', 'title' => 'Analytical Rigor', 'text' => 'Transparent assumptions, consistent methods and evidence-based conclusions.'],
+                ['icon' => 'factory', 'title' => 'Industry Understanding', 'text' => 'Financial analysis grounded in real business and project economics.'],
+                ['icon' => 'target', 'title' => 'Decision Focus', 'text' => 'Practical insights that support informed investment and management decisions.'],
+            ],
+        ],
     ],
 
     'pillars' => [

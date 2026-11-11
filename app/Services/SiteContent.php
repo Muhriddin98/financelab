@@ -72,6 +72,7 @@ class SiteContent
             'serviceIcons' => $d['service_icons'],
             'serviceDescriptions' => $d['service_descriptions'],
             'serviceGroups' => $d['service_groups'],
+            'aboutPage' => $d['about_page'] ?? [],
             'serviceSlugs' => $this->data['service_slugs'],
             'serviceBodies' => $d['service_bodies'],
             'industries' => $d['industries'],

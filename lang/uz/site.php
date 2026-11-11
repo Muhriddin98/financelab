@@ -29,9 +29,37 @@ return [
         ],
         'founder' => [
             'role' => 'Moliyaviy modellashtirish va investitsion tahlil mutaxassisi',
-            'bio' => 'Moliyaviy-iqtisodiy tahlil, texnik-iqtisodiy asoslash va investitsion loyihalar boʻyicha katta tajribaga ega Laziz FinanceLabʼga amaliy tajribani amaliy yechimlar, professional taʼlim va ommabop moliyaviy tahlilga aylantirish uchun asos solgan.',
+            'bio' => [
+                'Laziz Sherovatov — moliyaviy-iqtisodiy baholash, texnik-iqtisodiy asoslash va investitsion loyihalarni tahlil qilish boʻyicha sakkiz yildan ortiq tajribaga ega moliyaviy modellashtirish va investitsion tahlil mutaxassisi.',
+                'Konchilik, metallurgiya, avtosanoat va ishlab chiqarish loyihalarida ishlab, u amaliy tajribani konsalting, professional taʼlim va dalillarga asoslangan tahliliy kontentga olib kirish uchun FinanceLabʼga asos solgan.',
+            ],
         ],
         'footer' => ['copyright' => '© 2026 FinanceLab. Barcha huquqlar himoyalangan.'],
+    ],
+
+    'about_page' => [
+        'who' => [
+            'label' => 'Biz kimmiz',
+            'title' => 'Tajriba asosida. Tahlil bilan.',
+            'paragraphs' => [
+                'FinanceLab — Laziz Sherovatov asos solgan, Oʻzbekistondagi moliyaviy va investitsion konsalting brendi.',
+                'Moliyaviy modellashtirish, investitsion tahlil, TIA va mustaqil moliyaviy-iqtisodiy ekspertizadagi katta tajribaga tayanib, FinanceLab murakkab moliyaviy va iqtisodiy axborotni qarorga tayyor, aniq xulosalarga aylantiradi.',
+                'Konchilik, metallurgiya, avtosanoat va ishlab chiqarish loyihalaridagi amaliy tajriba bizga tahliliy jiddiylikni real soha tushunchasi bilan birlashtirib, investitsion va biznes qarorlarni qoʻllab-quvvatlash imkonini beradi.',
+            ],
+        ],
+        'approach' => [
+            'label' => 'Bizning yondashuv',
+            'title' => 'Murakkablikdan ravshanlikka.',
+            'paragraphs' => [
+                'Yaxshi moliyaviy qarorlar hisob-kitobdan koʻproq narsani talab qiladi. Ular asosli farazlarga, biznes va soha iqtisodiyotini aniq tushunishga hamda risklar, noaniqliklar va muqobil natijalarni koʻra bilishga bogʻliq.',
+                'Bizning yondashuvimiz qatʼiy moliyaviy tahlilni amaliy loyiha tajribasi bilan birlashtiradi. Texnik, tijorat va moliyaviy farazlar qanday bogʻlanishini oʻrganamiz, ularning oqibatlarini baholaymiz va natijalarni mazmunli xulosalarga aylantiramiz.',
+            ],
+            'cards' => [
+                ['title' => 'Tahliliy jiddiylik', 'text' => 'Shaffof farazlar, izchil usullar va dalillarga asoslangan xulosalar.'],
+                ['title' => 'Sohani tushunish', 'text' => 'Real biznes va loyiha iqtisodiyotiga asoslangan moliyaviy tahlil.'],
+                ['title' => 'Qarorga yoʻnaltirish', 'text' => 'Asosli investitsion va boshqaruv qarorlarini qoʻllab-quvvatlovchi amaliy xulosalar.'],
+            ],
+        ],
     ],
 
     'pillars' => [

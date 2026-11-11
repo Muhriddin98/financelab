@@ -90,7 +90,10 @@ return [
     'c_connect' => 'Connect',
     'file_choose' => 'Choose file',
     'file_none' => 'No file chosen',
-    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — max 5 MB',
+    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG - max 5 MB',
+
+    'three_directions' => 'Three directions',
+    'three_directions_desc' => 'Three complementary directions that apply expertise, develop capabilities and share insights with a wider professional audience.',
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — Project brief',
     'js_brief_pending' => 'This brief was prepared locally and has not been sent.',

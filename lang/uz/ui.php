@@ -92,6 +92,9 @@ return [
     'file_none' => 'Fayl tanlanmagan',
     'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — maks. 5 MB',
 
+    'three_directions' => 'Uch yo‘nalish',
+    'three_directions_desc' => 'Ekspertizani qo‘llaydigan, ko‘nikmalarni rivojlantiradigan va bilimlarni keng professional auditoriya bilan bo‘lishadigan uchta bir-birini to‘ldiruvchi yo‘nalish.',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — loyiha tavsifi',
     'js_brief_pending' => 'Tavsif mahalliy tayyorlandi va yuborilmadi.',

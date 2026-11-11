@@ -1,7 +1,7 @@
 @php $c = $copy['pillars']; @endphp
 <section id="directions" class="pillars-section section">
     <div class="container">
-        @include('partials.section-header', ['label' => $c['label'], 'title' => $c['title'], 'description' => $c['description'] ?? null])
+        @include('partials.section-header', ['label' => ($label ?? $c['label']), 'title' => $c['title'], 'description' => ($description ?? ($c['description'] ?? null))])
         <div class="pillar-grid">
             @foreach($pillars as $p)
             <a href="{{ ($localePrefix ?? '').'/'.$p['slug'].'/' }}" class="pillar-card {{ $p['color'] }}">

@@ -92,6 +92,9 @@ return [
     'file_none' => 'Файл не выбран',
     'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — макс. 5 МБ',
 
+    'three_directions' => 'Три направления',
+    'three_directions_desc' => 'Три взаимодополняющих направления, которые применяют экспертизу, развивают компетенции и делятся знаниями с широкой профессиональной аудиторией.',
+
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — описание проекта',
     'js_brief_pending' => 'Описание подготовлено локально и не отправлено.',

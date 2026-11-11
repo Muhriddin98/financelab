@@ -12,12 +12,13 @@
                 <p class="eyebrow">{{ __('ui.founder_eyebrow') }}</p>
                 <h2>{{ $founder['name'] }}</h2>
                 <p class="founder-role">{{ $founder['role'] }}</p>
-                <p>{{ $founder['bio'] }}</p>
-                <a class="text-link" href="{{ ($localePrefix ?? '').'/about/' }}">{{ $actions['learn'] }} @include('partials.lucide', ['name' => 'arrow-right', 'size' => 16])</a>
+                @foreach((array) $founder['bio'] as $para)<p>{{ $para }}</p>@endforeach
             </div>
             <div class="founder-metrics">
-                @foreach(array_slice($metrics, 0, 3) as $m)<div><strong>{{ $m['value'] }}</strong><span>{{ $m['label'] }}</span></div>@endforeach
-                <div><strong>{{ __('ui.impact_value') }}</strong><span>{{ __('ui.impact_label') }}</span></div>
+                @php $metricIcons = ['layers', 'calendar-days', 'network']; @endphp
+                @foreach(array_slice($metrics, 0, 3) as $i => $m)
+                <div><span class="metric-icon">@include('partials.lucide', ['name' => $metricIcons[$i], 'size' => 26])</span><span class="metric-text"><strong>{{ $m['value'] }}</strong><span>{{ $m['label'] }}</span></span></div>
+                @endforeach
             </div>
         </div>
     </div>
