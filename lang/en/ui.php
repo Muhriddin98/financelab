@@ -61,6 +61,8 @@ return [
     'privacy_h3' => 'Future contact services',
     'privacy_p3' => 'This notice should be updated when contact delivery, analytics or other data-processing services are introduced.',
 
+    'privacy_contact' => 'Contact for privacy matters',
+
     'terms_h1' => 'Informational materials',
     'terms_p1' => 'The content on this site introduces FinanceLab and provides general analytical and educational information. It is not an individualized investment recommendation or an offer of financing.',
     'terms_h2' => 'Project scopes',
@@ -90,7 +92,7 @@ return [
     'c_connect' => 'Connect',
     'file_choose' => 'Choose file',
     'file_none' => 'No file chosen',
-    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG - max 5 MB',
+    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG - max 20 MB',
 
     'three_directions' => 'Three directions',
     'three_directions_desc' => 'Three complementary directions that apply expertise, develop capabilities and share insights with a wider professional audience.',

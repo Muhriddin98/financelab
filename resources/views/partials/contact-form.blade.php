@@ -7,10 +7,12 @@
     </div>
     <label><span class="lab">{{ $c['labels']['organization'] }}</span><input name="organization" autocomplete="organization" maxlength="200" data-label="{{ $c['labels']['organization'] }}"></label>
     <label><span class="lab">{{ $c['labels']['interest'] }} <span class="req" aria-hidden="true">*</span></span><select name="interest" data-label="{{ $c['labels']['interest'] }}">@foreach($c['options'] as $o)<option>{{ $o }}</option>@endforeach</select></label>
-    <label><span class="lab">{{ $c['labels']['message'] }} <span class="req" aria-hidden="true">*</span></span><textarea name="message" required minlength="20" maxlength="5000" rows="5" data-label="{{ $c['labels']['message'] }}"></textarea></label>
+    <label><span class="lab">{{ $c['labels']['message'] }} <span class="req" aria-hidden="true">*</span></span><textarea name="message" required minlength="20" maxlength="5000" rows="5" placeholder="{{ $c['placeholders']['message'] }}" data-label="{{ $c['labels']['message'] }}"></textarea></label>
     <label><span class="lab">{{ $c['labels']['file'] }}</span><span class="file-pick">@include('partials.lucide', ['name' => 'upload', 'size' => 18])<span class="file-btn">{{ __('ui.file_choose') }}</span><span class="file-name" data-none="{{ __('ui.file_none') }}">{{ __('ui.file_none') }}</span><input type="file" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.csv,.zip,.jpg,.jpeg,.png,.webp"></span></label>
     <p class="file-hint">{{ __('ui.file_hint') }}</p>
-    <p class="form-note">{{ $c['note'] }}</p>
+    @if($c['note'])<p class="form-note">{{ $c['note'] }}</p>@endif
+    <div class="privacy-note">@include('partials.lucide', ['name' => 'shield-check', 'size' => 16])<span>{{ $c['privacy'] }}</span></div>
+    <p class="privacy-policy-note">{{ $c['privacy_note'] }}</p>
     <div class="button-row">
         <button class="button" type="submit" value="send">{{ $c['button'] }}</button>
         <button class="download-button" type="submit" value="download">@include('partials.lucide', ['name' => 'download', 'size' => 17]) {{ __('ui.download_brief') }}</button>

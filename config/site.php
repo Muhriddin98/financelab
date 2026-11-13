@@ -280,12 +280,12 @@ return [
             'intro' => 'Have a project to evaluate, a team to develop or a topic to explore? Start with a clear brief.',
         ],
         'privacy' => [
-            'label' => 'Privacy', 'title' => 'Your information, handled clearly.',
-            'intro' => 'How this initial FinanceLab website handles information.',
+            'label' => 'Privacy Policy', 'title' => 'Your information, handled with care.',
+            'intro' => 'How FinanceLab collects, uses and protects your personal information and submitted documents.',
         ],
         'terms' => [
-            'label' => 'Website terms', 'title' => 'Using FinanceLab’s website.',
-            'intro' => 'A clear basis for reading and using the materials on this site.',
+            'label' => 'Terms of Use', 'title' => 'Using FinanceLab’s website.',
+            'intro' => 'A clear basis for accessing and using our content and professional materials.',
         ],
     ],
 
@@ -310,10 +310,57 @@ return [
             'message' => 'Project or topic',
             'file' => 'Attach a file (optional)',
         ],
+        'placeholders' => [
+            'message' => 'Briefly describe your project, business challenge or the type of support you are looking for.',
+        ],
         'button' => 'Send message',
-        'note' => 'Fill in the form and press the button — your message will be sent directly to FinanceLab.',
+        'note' => '',
         'success' => 'Thank you! Your message has been sent. We will get back to you soon.',
-        'options' => ['Advisory', 'Academy', 'Media', 'General enquiry'],
+        'options' => ['Financial & Investment Advisory', 'Data & Digital Solutions', 'Academy & Corporate Training', 'Media & Research', 'General Inquiry'],
+        'privacy' => 'Your information will be handled with confidentiality and used only to respond to your inquiry.',
+        'privacy_note' => 'By submitting this form, you acknowledge our Privacy Policy.',
+    ],
+
+    'legal' => [
+        'privacy' => [
+            'updated' => 'Last updated: November 2026',
+            'intro' => 'FinanceLab respects your privacy and recognizes the importance of protecting personal information and confidential business documents. This Privacy Policy explains how information submitted through financelab.uz is collected, used and handled.',
+            'short_title' => 'In short',
+            'short' => [
+                'We collect only the information you provide and basic technical data.',
+                'We use it to respond to your inquiry and deliver our services.',
+                'Your project information is treated confidentially.',
+                'We do not sell your data.',
+                'You can contact us to manage your information.',
+            ],
+            'sections' => [
+                ['icon' => 'user', 'title' => '1. Information We Collect', 'text' => 'We may collect information that you voluntarily provide when contacting FinanceLab, including your name and contact details, organization name, area of interest, project descriptions and other information in your message, as well as documents and files you submit. Our website may also process technical information for its operation and security, such as IP addresses, browser information and access logs.'],
+                ['icon' => 'layers', 'title' => '2. How We Use Your Information', 'text' => 'We use the information to respond to your inquiry, understand your project needs, prepare proposals and discuss possible engagements, deliver agreed services (advisory, analytical, educational or digital), maintain website functionality and security, and comply with applicable legal obligations.'],
+                ['icon' => 'shield-check', 'title' => '3. Confidentiality of Business Information', 'text' => 'We recognize that financial models, feasibility studies, investment proposals and other documents may contain commercially sensitive information. Such information will be handled with appropriate confidentiality and used only for the purposes related to your inquiry or engagement. If required, a separate Non-Disclosure Agreement (NDA) may be established before detailed documents are exchanged.'],
+                ['icon' => 'share-2', 'title' => '4. Information Sharing', 'text' => 'FinanceLab does not sell personal information. Information may be processed by trusted service providers (e.g., website hosting and email services) under appropriate confidentiality and data protection requirements, or disclosed where required by law or to fulfil an agreed engagement.'],
+                ['icon' => 'database', 'title' => '5. Data Storage and Security', 'text' => 'We apply reasonable organizational and technical measures to protect your information against unauthorized access, disclosure, alteration or loss. Information is retained only for as long as necessary to fulfil the purposes for which it was collected, maintain business records or comply with legal obligations.'],
+                ['icon' => 'cookie', 'title' => '6. Cookies and Website Technologies', 'text' => 'Our website may use essential cookies and similar technologies necessary for its operation, language preferences and security. If we introduce analytics or other non-essential technologies in the future, this Policy will be updated and, where required, your consent will be requested.'],
+                ['icon' => 'sliders-horizontal', 'title' => '7. Your Rights', 'text' => 'Subject to applicable data protection laws, you may have the right to request access to your personal data, ask for correction or deletion, restrict processing, or withdraw your consent. You can contact us using the details provided on this page.'],
+                ['icon' => 'refresh-cw', 'title' => '8. Changes to This Policy', 'text' => 'We may update this Privacy Policy to reflect changes in our services, website functionality or legal requirements. The most recent version will always be available on this page with the updated date.'],
+            ],
+        ],
+        'terms' => [
+            'updated' => 'Last updated: November 2026',
+            'intro' => '',
+            'short_title' => 'In short',
+            'short' => [
+                'Informational and educational content.',
+                'Not an investment recommendation.',
+                'Professional services agreed separately.',
+                'Respect for intellectual property.',
+            ],
+            'sections' => [
+                ['icon' => 'file-text', 'title' => 'Informational materials', 'text' => 'FinanceLab provides analytical, educational and research content for general informational purposes. Published materials do not constitute individualized investment recommendations or guarantees of financial performance.'],
+                ['icon' => 'briefcase', 'title' => 'Professional services', 'text' => 'The scope, deliverables, fees and responsibilities of professional engagements are agreed separately. Submitting an inquiry does not establish a contractual relationship.'],
+                ['icon' => 'layers', 'title' => 'Intellectual property', 'text' => 'FinanceLab\'s original content and branding are protected by applicable intellectual property rights. Materials may be referenced with appropriate attribution. Commercial reproduction requires prior permission, unless otherwise permitted by law.'],
+                ['icon' => 'shield-check', 'title' => 'Accuracy and external sources', 'text' => 'FinanceLab aims to provide accurate and reliable information. However, published analyses may depend on assumptions, available data and changing economic conditions. External materials remain subject to their respective owners\' rights.'],
+            ],
+        ],
     ],
 
     'ref_images' => [

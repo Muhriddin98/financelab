@@ -250,25 +250,11 @@
         @endif
 
         @if($section === 'privacy')
-            <section class="detail-section">
-                <div class="container legal-copy"><h2>{{ __('ui.privacy_h1') }}</h2>
-                    <p>{{ __('ui.privacy_p1') }}</p>
-                    <h2>{{ __('ui.privacy_h2') }}</h2>
-                    <p>{{ __('ui.privacy_p2') }}</p>
-                    <h2>{{ __('ui.privacy_h3') }}</h2>
-                    <p>{{ __('ui.privacy_p3') }}</p></div>
-            </section>
+            @include('partials.legal')
         @endif
 
         @if($section === 'terms')
-            <section class="detail-section">
-                <div class="container legal-copy"><h2>{{ __('ui.terms_h1') }}</h2>
-                    <p>{{ __('ui.terms_p1') }}</p>
-                    <h2>{{ __('ui.terms_h2') }}</h2>
-                    <p>{{ __('ui.terms_p2') }}</p>
-                    <h2>{{ __('ui.terms_h3') }}</h2>
-                    <p>{{ __('ui.terms_p3') }}</p></div>
-            </section>
+            @include('partials.legal')
         @endif
 
         @if($showCta)@include('partials.final-cta')@endif

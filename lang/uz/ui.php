@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // View lardagi hardcoded matnlarning oʻzbekcha varianti (DB kontenti tarjima qilinmaydi).
 return [
@@ -61,6 +61,8 @@ return [
     'privacy_h3' => 'Kelajakdagi aloqa xizmatlari',
     'privacy_p3' => 'Aloqa yetkazish, tahlil yoki boshqa maʼlumot qayta ishlash xizmatlari joriy etilganda bu bildirish yangilanishi kerak.',
 
+    'privacy_contact' => 'Maxfiylik bo‘yicha aloqa',
+
     'terms_h1' => 'Axborot materiallari',
     'terms_p1' => 'Sayt mazmuni FinanceLabʼni tanishtiradi va umumiy tahliliy hamda taʼlim axborotini beradi. Bu yakka investitsion tavsiya yoki moliyalashtirish taklifi emas.',
     'terms_h2' => 'Loyiha tavsiflari',
@@ -90,7 +92,7 @@ return [
     'c_connect' => 'Bog‘lanish',
     'file_choose' => 'Fayl tanlash',
     'file_none' => 'Fayl tanlanmagan',
-    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG — maks. 5 MB',
+    'file_hint' => 'PDF, Word, Excel, PPT, JPG, PNG - maks. 20 MB',
 
     'three_directions' => 'Uch yo‘nalish',
     'three_directions_desc' => 'Ekspertizani qo‘llaydigan, ko‘nikmalarni rivojlantiradigan va bilimlarni keng professional auditoriya bilan bo‘lishadigan uchta bir-birini to‘ldiruvchi yo‘nalish.',

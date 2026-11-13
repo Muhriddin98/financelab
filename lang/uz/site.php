@@ -192,12 +192,12 @@ return [
             'intro' => 'Baholash uchun loyihangiz, rivojlantirish uchun jamoangiz yoki oʻrganish uchun mavzuingiz bormi? Aniq tavsifdan boshlang.',
         ],
         'privacy' => [
-            'label' => 'Maxfiylik', 'title' => 'Maʼlumotlaringiz nazoratda.',
-            'intro' => 'FinanceLab sayti axborotni qanday qayta ishlashi.',
+            'label' => 'Maxfiylik siyosati', 'title' => 'Maʼlumotlaringiz — ehtiyotkorlik bilan.',
+            'intro' => 'FinanceLab shaxsiy maʼlumotlaringiz va yuborilgan hujjatlarni qanday toʻplashi, ishlatishi va himoya qilishi.',
         ],
         'terms' => [
-            'label' => 'Sayt shartlari', 'title' => 'FinanceLab saytidan foydalanish.',
-            'intro' => 'Sayt materiallarini oʻqish va foydalanish uchun aniq asos.',
+            'label' => 'Foydalanish shartlari', 'title' => 'FinanceLab saytidan foydalanish.',
+            'intro' => 'Kontent va professional materiallarimizdan foydalanish uchun aniq asos.',
         ],
     ],
 
@@ -213,9 +213,56 @@ return [
             'message' => 'Loyiha yoki mavzu',
             'file' => 'Fayl biriktirish (ixtiyoriy)',
         ],
+        'placeholders' => [
+            'message' => 'Loyihangiz, biznes muammosi yoki sizga kerak boʻlgan yordam turini qisqacha tasvirlang.',
+        ],
         'button' => 'Xabar yuborish',
-        'note' => 'Formani toʻldiring va tugmani bosing — xabaringiz bevosita FinanceLab ga yuboriladi.',
+        'note' => '',
         'success' => 'Rahmat! Xabaringiz yuborildi. Tez orada bogʻlanamiz.',
-        'options' => ['Konsalting', 'Akademiya', 'Media', 'Umumiy soʻrov'],
+        'options' => ['Moliyaviy va investitsion konsalting', 'Maʼlumotlar va raqamli yechimlar', 'Akademiya va korporativ taʼlim', 'Media va tadqiqotlar', 'Umumiy so‘rov'],
+        'privacy' => 'Maʼlumotlaringiz maxfiy tarzda qayta ishlanadi va faqat soʻrovingizga javob berish uchun ishlatiladi.',
+        'privacy_note' => 'Formani yuborish orqali Maxfiylik siyosatimizni tan olgan boʻlasiz.',
+    ],
+
+    'legal' => [
+        'privacy' => [
+            'updated' => 'Yangilangan: 2026-yil noyabr',
+            'intro' => 'FinanceLab maxfiyligingizni hurmat qiladi va shaxsiy maʼlumotlar hamda maxfiy biznes hujjatlarini himoya qilish muhimligini tan oladi. Ushbu Siyosat financelab.uz orqali yuborilgan axborot qanday toʻplanishi, ishlatilishi va qayta ishlanishini tushuntiradi.',
+            'short_title' => 'Qisqacha',
+            'short' => [
+                'Biz faqat siz taqdim etgan maʼlumotlarni va asosiy texnik maʼlumotlarni toʻplaymiz.',
+                'Ulardan soʻrovingizga javob berish va xizmatlarimizni koʻrsatish uchun foydalanamiz.',
+                'Loyihangiz haqidagi maʼlumotlar maxfiy tarzda qayta ishlanadi.',
+                'Maʼlumotlaringizni sotmaymiz.',
+                'Maʼlumotlaringizni boshqarish uchun biz bilan bogʻlanishingiz mumkin.',
+            ],
+            'sections' => [
+                ['title' => '1. Qanday maʼlumotlarni toʻplaymiz', 'text' => 'Biz FinanceLab bilan bogʻlanganingizda ixtiyoriy taqdim etgan maʼlumotlarni toʻplashimiz mumkin: ism va aloqa maʼlumotlari, tashkilot nomi, qiziqish yoʻnalishi, loyiha tavsifi va xabaringizdagi boshqa maʼlumotlar, shuningdek yuborgan hujjat va fayllaringiz. Sayt oʻz ishi va xavfsizligi uchun texnik axborotni ham qayta ishlashi mumkin: IP-manzillar, brauzer maʼlumotlari va kirish jurnallari.'],
+                ['title' => '2. Axborotingizdan qanday foydalanamiz', 'text' => 'Biz axborotdan soʻrovingizga javob berish, loyiha ehtiyojlarini tushunish, takliflar tayyorlash va mumkin boʻlgan hamkorlikni muhokama qilish, kelishilgan xizmatlarni koʻrsatish (konsalting, tahlil, taʼlim yoki raqamli yechimlar), sayt ishi va xavfsizligini taʼminlash hamda amaldagi huquqiy majburiyatlarni bajarish uchun foydalanamiz.'],
+                ['title' => '3. Biznes axborotining maxfiyligi', 'text' => 'Moliyaviy modellar, TIA, investitsion takliflar va boshqa hujjatlar tijorat jihatdan nozik axborotni oʻz ichiga olishi mumkinligini tushunamiz. Bunday axborot tegishli maxfiylik bilan qayta ishlanadi va faqat soʻrovingiz yoki hamkorligingiz bilan bogʻliq maqsadlarda ishlatiladi. Zarur boʻlsa, batafsil hujjatlar almashinuvidan oldin alohida maxfiylik shartnomasi (NDA) tuzilishi mumkin.'],
+                ['title' => '4. Axborotni uzatish', 'text' => 'FinanceLab shaxsiy maʼlumotlarni sotmaydi. Axborot ishonchli xizmat koʻrsatuvchilar (masalan, sayt xostingi va pochta xizmatlari) tomonidan tegishli maxfiylik va maʼlumotlarni himoya qilish talablari asosida qayta ishlanishi yoki qonun talab qilganda yoki kelishilgan hamkorlikni bajarish uchun oshkor qilinishi mumkin.'],
+                ['title' => '5. Maʼlumotlarni saqlash va xavfsizlik', 'text' => 'Axborotni ruxsatsiz kirish, oshkor qilish, oʻzgartirish yoki yoʻqotishdan himoya qilish uchun oqilona tashkiliy va texnik choralar qoʻllaymiz. Axborot faqat toʻplash maqsadlariga erishish, biznes yozuvlarini yuritish yoki huquqiy majburiyatlarni bajarish uchun zarur boʻlgan muddatgacha saqlanadi.'],
+                ['title' => '6. Cookies va sayt texnologiyalari', 'text' => 'Sayt oʻz ishi, til sozlamalari va xavfsizligi uchun zarur cookies va shunga oʻxshash texnologiyalardan foydalanishi mumkin. Kelajakda tahlil yoki boshqa ixtiyoriy texnologiyalarni joriy qilsak, ushbu Siyosat yangilanadi va zarur boʻlsa, sizning roziligingiz soʻraladi.'],
+                ['title' => '7. Sizning huquqlaringiz', 'text' => 'Amaldagi maʼlumotlarni himoya qilish qonunchiligiga muvofiq siz shaxsiy maʼlumotlaringizga kirishni soʻrash, ularni tuzatish yoki oʻchirishni talab qilish, qayta ishlashni cheklash yoki roziligingizni qaytarib olish huquqiga ega boʻlishingiz mumkin. Ushbu sahifadagi kontaktlar orqali biz bilan bogʻlanishingiz mumkin.'],
+                ['title' => '8. Siyosatga kiritilgan oʻzgarishlar', 'text' => 'Xizmatlarimiz, sayt ishi yoki qonunchilik talablaridagi oʻzgarishlarni aks ettirish uchun ushbu Maxfiylik siyosatini yangilashimiz mumkin. Eng soʻnggi versiya har doim ushbu sahifada yangilangan sana bilan mavjud boʻladi.'],
+            ],
+        ],
+        'terms' => [
+            'updated' => 'Yangilangan: 2026-yil noyabr',
+            'intro' => '',
+            'short_title' => 'Qisqacha',
+            'short' => [
+                'Informatsion va taʼlimiy kontent.',
+                'Investitsion tavsiya emas.',
+                'Professional xizmatlar alohida kelishiladi.',
+                'Intellektual mulkka hurmat.',
+            ],
+            'sections' => [
+                ['title' => 'Informatsion materiallar', 'text' => 'FinanceLab umumiy informatsion maqsadlarda tahliliy, taʼlimiy va tadqiqot kontentini taqdim etadi. Nashr etilgan materiallar yakka tartibdagi investitsion tavsiya yoki moliyaviy natijalar kafolati hisoblanmaydi.'],
+                ['title' => 'Professional xizmatlar', 'text' => 'Professional xizmatlarning hajmi, natijalari, narxi va masʼuliyati alohida kelishiladi. Soʻrov yuborish shartnoma munosabatlarini yaratmaydi.'],
+                ['title' => 'Intellektual mulk', 'text' => 'FinanceLabning original kontenti va brendi amaldagi intellektual mulk huquqlari bilan himoyalangan. Materiallarga tegishli manba koʻrsatilgan holda havola qilish mumkin. Tijoriy koʻpaytirish, qonunda boshqacha ruxsat berilmagan boʻlsa, oldindan ruxsat talab qiladi.'],
+                ['title' => 'Aniqlik va tashqi manbalar', 'text' => 'FinanceLab aniq va ishonchli axborot taqdim etishga intiladi. Biroq nashr etilgan tahlillar farazlar, mavjud maʼlumotlar va oʻzgaruvchan iqtisodiy sharoitlarga bogʻliq boʻlishi mumkin. Tashqi materiallar oʻz egalarining huquqlarida qoladi.'],
+            ],
+        ],
     ],
 ];
