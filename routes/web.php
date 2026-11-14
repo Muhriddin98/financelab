@@ -21,6 +21,19 @@ $site = function () {
     Route::get('projects/{slug}', [ProjectController::class, 'show']);
     Route::get('insights/{slug}', [InsightController::class, 'show']);
     Route::get('media/{slug}', [MediaController::class, 'show']);
+
+    // Eski uzun xizmat sluglari → yangi qisqa URL lar (301, til prefiksini saqlaydi).
+    $legacy = [
+        'financial-modeling-investment-analysis' => 'financial-modeling',
+        'independent-financial-review' => 'independent-review',
+        'business-diagnostics-analysis' => 'business-diagnostics',
+        'data-analytics-visualization' => 'data-analytics',
+        'website-development-maintenance' => 'website-development',
+    ];
+    foreach ($legacy as $old => $new) {
+        Route::get('advisory/'.$old, fn () => redirect(str_replace($old, $new, request()->path()).'/', 301));
+    }
+
     Route::get('advisory/{service}', [ServiceController::class, 'show']);
 };
 

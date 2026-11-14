@@ -31,10 +31,10 @@ return [
     'open_link' => ':name ni ochish ↗',
 
     'sec_advisory_h2' => 'Gʻoyadan asosli qarorga.',
-    'sec_academy_h2' => 'Model ortidagi mantiqni oʻrganing.',
+    'sec_academy_h2' => 'Moliyaviy model ortidagi iqtisodiy mantiqni anglang.',
     'sec_media_h2' => 'Moliyaviy tahlil — tushunarli.',
     'explore_explainers' => 'Tahlillarni koʻrish',
-    'discuss_learning' => 'Taʼlim ehtiyojini muhokama qilish',
+    'discuss_learning' => 'Ta’lim ehtiyojlarini muhokama qilish',
     'discuss_project' => 'Loyihani muhokama qilish',
     'explore_work' => 'Tanlangan ishlarni koʻrish',
     'ind_h2a' => 'Sohalarni tushunish.',
@@ -96,6 +96,13 @@ return [
 
     'three_directions' => 'Uch yo‘nalish',
     'three_directions_desc' => 'Ekspertizani qo‘llaydigan, ko‘nikmalarni rivojlantiradigan va bilimlarni keng professional auditoriya bilan bo‘lishadigan uchta bir-birini to‘ldiruvchi yo‘nalish.',
+
+    'advisory_crumb' => 'Konsalting',
+    'svc_overview' => 'Xizmat haqida',
+    'what_we_do' => 'Biz nimalarni amalga oshiramiz?',
+    'key_deliverables' => 'Xizmat natijalari',
+    'who_we_work_with' => 'Kimlar bilan ishlaymiz?',
+    'in_short' => 'Qisqacha',
 
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — loyiha tavsifi',

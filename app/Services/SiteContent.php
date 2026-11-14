@@ -75,7 +75,6 @@ class SiteContent
             'aboutPage' => $d['about_page'] ?? [],
             'legal' => $d['legal'] ?? [],
             'serviceSlugs' => $this->data['service_slugs'],
-            'serviceBodies' => $d['service_bodies'],
             'industries' => $d['industries'],
             'industryImages' => $industryImages,
             'industryDescriptions' => $d['industry_descriptions'],
@@ -110,8 +109,8 @@ class SiteContent
         return [
             'section' => $section,
             'page' => $pages[$section],
-            'metaTitle' => $pages[$section]['label'].' | FinanceLab',
-            'metaDescription' => $pages[$section]['intro'],
+            'metaTitle' => ($pages[$section]['seo_title'] ?? $pages[$section]['label']).' | FinanceLab',
+            'metaDescription' => $pages[$section]['seo_description'] ?? $pages[$section]['intro'],
             'analytical' => $this->analytical(),
             'mediaArticles' => $this->mediaArticles(),
         ];
@@ -125,23 +124,26 @@ class SiteContent
     /** Batafsil xizmat sahifasi: slug bo'yicha (3 tilda bir xil EN slug). */
     public function service(string $slug): ?array
     {
-        $i = array_search($slug, $this->data['service_slugs'], true);
-        if ($i === false) {
+        $details = $this->data()['service_details'] ?? [];
+        if (! isset($details[$slug])) {
             return null;
         }
-        $d = $this->data();
+        $d = $details[$slug];
+        $slugs = $this->data['service_slugs'];
+        $i = array_search($slug, $slugs, true);
+        $groups = $this->data()['service_groups'];
 
-        return [
-            'index' => $i,
+        return array_merge($d, [
             'slug' => $slug,
-            'name' => $d['services'][$i],
-            'description' => $d['service_descriptions'][$i],
-            'body' => $d['service_bodies'][$i],
-            'icon' => $d['service_icons'][$i],
-            'group' => $d['service_groups'][$i < 4 ? 0 : 1],
-            'metaTitle' => $d['services'][$i].' | FinanceLab',
-            'metaDescription' => $d['service_descriptions'][$i],
-        ];
+            'index' => $i,
+            'group_title' => $d['group'] === 'data' ? $groups[1]['title'] : $groups[0]['title'],
+            'eyebrow' => ($d['group'] === 'data' ? $groups[1]['title'] : $groups[0]['title']).' — '.$d['number'],
+            'name' => $d['title'],
+            'description' => $d['lead'],
+            'icon' => $this->data['service_icons'][$i] ?? 'briefcase',
+            'metaTitle' => $d['title'].' | FinanceLab',
+            'metaDescription' => $d['lead'],
+        ]);
     }
 
     /** Portfolio: 5 standart soha + portfolio_items (projects dan ALOHIDA). */

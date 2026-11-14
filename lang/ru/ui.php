@@ -31,7 +31,7 @@ return [
     'open_link' => 'Открыть :name ↗',
 
     'sec_advisory_h2' => 'От идеи к обоснованному решению.',
-    'sec_academy_h2' => 'Поймите логику за моделью.',
+    'sec_academy_h2' => 'Понимать логику, стоящую за финансовой моделью.',
     'sec_media_h2' => 'Финансовая аналитика — понятно.',
     'explore_explainers' => 'Смотреть разборы',
     'discuss_learning' => 'Обсудить потребности в обучении',
@@ -96,6 +96,13 @@ return [
 
     'three_directions' => 'Три направления',
     'three_directions_desc' => 'Три взаимодополняющих направления, которые применяют экспертизу, развивают компетенции и делятся знаниями с широкой профессиональной аудиторией.',
+
+    'advisory_crumb' => 'Консалтинг',
+    'svc_overview' => 'Обзор услуги',
+    'what_we_do' => 'Что мы делаем',
+    'key_deliverables' => 'Результаты работы',
+    'who_we_work_with' => 'С кем мы работаем',
+    'in_short' => 'Кратко',
 
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — описание проекта',

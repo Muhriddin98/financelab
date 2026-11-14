@@ -43,6 +43,17 @@ $icons = [
     'scale' => '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>',
     'briefcase' => '<rect width="20" height="14" x="2" y="6" rx="2"></rect><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>',
     'check' => '<path d="M20 6 9 17l-5-5"></path>',
+    'check-circle' => '<circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>',
+    'users' => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
+    'gauge' => '<path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path>',
+    'alert-triangle' => '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path>',
+    'code' => '<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>',
+    'search' => '<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path>',
+    'clipboard-list' => '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path>',
+    'file-chart-column' => '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M8 18v-1"></path><path d="M12 18v-6"></path><path d="M16 18v-3"></path>',
+    'file-spreadsheet' => '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M8 13h2"></path><path d="M14 13h2"></path><path d="M8 17h2"></path><path d="M14 17h2"></path>',
+    'monitor-chart' => '<rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M7 13v-2"></path><path d="M12 13V7"></path><path d="M17 13V9"></path>',
+    'code-xml' => '<path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path>',
     'calendar' => '<path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path>',
     'database' => '<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14a9 3 0 0 0 18 0V5"></path><path d="M3 12a9 3 0 0 0 18 0"></path>',
     'mountain' => '<path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>',
@@ -53,6 +64,6 @@ $icons = [
 ];
 $inner = $icons[$name] ?? '';
 if ($name === 'mouse') { $stroke = 1.2; }
-if (in_array($name, ['chart-no-axes-combined','file-text','coins','presentation','scan-line','chart-pie','monitor','database','mountain','car','factory','zap','landmark','upload','mail','phone','map-pin','shield-check','shield','lock','user','share-2','cookie','sliders-horizontal','refresh-cw','scale','briefcase','check','calendar','trending-up','target','layers','calendar-days','network','chart-column','chart-line','goal','chart-no-axes-column'])) { $stroke = 1.25; }
+if (in_array($name, ['chart-no-axes-combined','file-text','coins','presentation','scan-line','chart-pie','monitor','database','mountain','car','factory','zap','landmark','upload','mail','phone','map-pin','shield-check','shield','lock','user','share-2','cookie','sliders-horizontal','refresh-cw','scale','briefcase','check','check-circle','users','gauge','alert-triangle','code','search','clipboard-list','file-chart-column','file-spreadsheet','monitor-chart','code-xml','calendar','trending-up','target','layers','calendar-days','network','chart-column','chart-line','goal','chart-no-axes-column'])) { $stroke = 1.25; }
 @endphp
 <svg xmlns="http://www.w3.org/2000/svg" width="{{ $size }}" height="{{ $size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ $stroke }}" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-{{ $name }}" aria-hidden="true">{!! $inner !!}</svg>

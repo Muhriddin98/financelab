@@ -96,6 +96,13 @@ return [
 
     'three_directions' => 'Three directions',
     'three_directions_desc' => 'Three complementary directions that apply expertise, develop capabilities and share insights with a wider professional audience.',
+
+    'advisory_crumb' => 'Advisory',
+    'svc_overview' => 'Service overview',
+    'what_we_do' => 'What We Do',
+    'key_deliverables' => 'Key Deliverables',
+    'who_we_work_with' => 'Who We Work With',
+    'in_short' => 'In short',
     // Contact forma JS (site.js data-atributlardan o'qiydi).
     'js_brief_title' => 'FinanceLab — Project brief',
     'js_brief_pending' => 'This brief was prepared locally and has not been sent.',
